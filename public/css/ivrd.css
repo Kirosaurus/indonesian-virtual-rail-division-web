@@ -10,6 +10,7 @@
     font-weight: 200;
     font-style: normal;
 }
+
 @font-face {
     font-family: "Nexa";
     src: url("/fonts/nexa/Nexa-Heavy.ttf") format("truetype");
@@ -27,10 +28,12 @@
     margin: 0;
     padding: 0;
 }
+
 a {
     text-decoration: none;
     color: inherit;
 }
+
 ul {
     list-style: none;
 }
@@ -91,12 +94,14 @@ ul {
 
 /* Checkboard overlay texture */
 .sidebar-overlay {
+    width: 2000px;
+    height: 1119px;
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
     mix-blend-mode: multiply;
     transform: rotate(5.65deg) translate(-50px);
-    scale: 8;
+    /* scale: 1; */
     pointer-events: none;
 }
 
@@ -134,10 +139,12 @@ ul {
     color: white;
     border-radius: 15px;
 }
+
 .icons:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
+
 .icons:active {
     transform: scale(0.9);
 }
@@ -155,13 +162,15 @@ ul {
     gap: 20px;
     transition: transform 180ms ease;
 }
+
 .icons-active:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
+
 .icons-active:active {
     transform: scale(0.9);
-    background: #ff9b51;
+    background: #FF9B51;
     transition: 0.1s ease-in-out;
 }
 
@@ -187,6 +196,7 @@ ul {
 .facebook-logo {
     transition: 0.1s ease-in-out;
 }
+
 .facebook-logo:hover {
     scale: 1.2;
     cursor: pointer;
@@ -243,6 +253,7 @@ h2 {
 
 /* Horizontal product scroller */
 .list-product {
+    font-family: "Nexa";
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 335px);
@@ -253,6 +264,7 @@ h2 {
     flex-shrink: 0;
     scrollbar-width: none;
 }
+
 .list-product::-webkit-scrollbar {
     display: none;
 }
@@ -270,6 +282,7 @@ h2 {
     transition: 0.3s ease-in-out;
     flex-shrink: 0;
 }
+
 .product:hover {
     scale: 1.05;
 }
@@ -291,7 +304,7 @@ h2 {
     min-width: 50px;
     min-height: 50px;
     padding: 5px;
-    background: white;
+    background: #eaefef7a;
     border: none;
     border-radius: 30px;
     cursor: pointer;
@@ -302,10 +315,12 @@ h2 {
         transform 0.1s ease,
         background-color 100ms ease;
 }
+
 .sidebar-button:hover {
     transform: scale(1.05);
     background-color: #f0f0f0;
 }
+
 .sidebar-button:active {
     transform: scale(0.9);
     background-color: #f0f0f0;
@@ -325,9 +340,11 @@ h2 {
     cursor: pointer;
     transition: 0.1s ease-in-out;
 }
+
 .login-button:hover {
     scale: 1.1;
 }
+
 .login-button:active {
     scale: 0.9;
 }
@@ -522,6 +539,7 @@ h2 {
     color: white;
 }
 
+<<<<<<< HEAD
 
 /* ============================================================
    Freeware  (freeware.blade.php)
@@ -529,6 +547,13 @@ h2 {
 
 
 .main-freeware {
+=======
+/* ============================================================
+   CONTACT 
+   ============================================================ */
+
+.main-contact {
+>>>>>>> c483a90b0f80769e2cb5c10851097074ecdc0ee8
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -536,6 +561,7 @@ h2 {
     padding: 30px 54px 54px 54px;
     z-index: 1;
     height: 100vh;
+<<<<<<< HEAD
     /* overflow-y: auto; */
     scroll-behavior: smooth;
 }
@@ -553,4 +579,44 @@ h2 {
 }
 .list-product-freeware::-webkit-scrollbar {
     display: none;
+=======
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.top-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-media-section{
+    display: flex;
+    gap: 40px;
+}
+
+.social-media-contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: "Nexa";
+    font-weight: 800;
+    font-size: 32px;
+    padding: 20px 32px;
+    border-radius: 30px;
+    background: linear-gradient(225deg, #78838B, #C07944);
+    color: white;
+    border: none;
+    transition: 0.1s ease-in-out;
+}
+
+.social-media-contact:hover {
+    scale: 1.1;
+}
+
+.social-media-contact:active {
+    scale: 0.9;
+>>>>>>> c483a90b0f80769e2cb5c10851097074ecdc0ee8
 }
