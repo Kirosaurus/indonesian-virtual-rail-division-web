@@ -27,6 +27,9 @@
                 <button class="ascend-descend-button">
                     <img class="arrow-sort" src="{{ asset('asc-dsc.svg') }}" height="25" width="25" alt="Ascending" />
                     Ascending</button>
+                <div id="search-container">
+                    <input type="text" class="search-input" placeholder="Search a product " />
+                </div>
             </div>
         </div>
 

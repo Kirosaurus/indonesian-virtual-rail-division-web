@@ -11,7 +11,8 @@
                 <img src="{{ asset('menu.svg') }}" height="30" width="30" alt="Menu" />
             </button>
             <h1>Payware</h1>
-            <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-end;">
+            <div
+                style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: flex-end; gap: 15px;">
                 <button class="login-button">Login</button>
             </div>
         </div>
@@ -28,6 +29,9 @@
                 <button class="ascend-descend-button">
                     <img class="arrow-sort" src="{{ asset('asc-dsc.svg') }}" height="25" width="25" alt="Ascending" />
                     Ascending</button>
+                <div id="search-container">
+                    <input type="text" class="search-input" placeholder="Search a product " />
+                </div>
             </div>
         </div>
 
