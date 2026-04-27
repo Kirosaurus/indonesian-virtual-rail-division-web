@@ -17,3 +17,7 @@ Route::get('/freeware', function () {
 Route::get('/terms&condition', function () {
     return view('terms&condition');
 });
+
+Route::get('/contact', function () {
+    return view('contact');
+});

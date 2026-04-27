@@ -7,7 +7,7 @@
 
         {{-- Top bar --}}
         <div style="display: flex; align-items: center; gap: 10px;">
-            <button class="sidebar-button">
+            <button id="sidebar-button">
                 <img src="{{ asset('menu.svg') }}" height="30" width="30" alt="Menu" />
             </button>
             <h1>Payware</h1>
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="list-product-payware">
+        <div id="list-product-payware">
 
             {{--
             Replace this static loop with a dynamic @foreach when
