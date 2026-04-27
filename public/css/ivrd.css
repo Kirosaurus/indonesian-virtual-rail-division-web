@@ -541,6 +541,15 @@ h2 {
     color: white;
 }
 
+<<<<<<< HEAD
+
+/* ============================================================
+   Freeware  (freeware.blade.php)
+   ============================================================ */
+
+
+.main-freeware {
+=======
 /* ============================================================
    CONTACT 
    ============================================================ */
@@ -552,6 +561,7 @@ p {
 }
 
 .main-contact {
+>>>>>>> c483a90b0f80769e2cb5c10851097074ecdc0ee8
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -559,6 +569,25 @@ p {
     padding: 30px 54px 54px 54px;
     z-index: 1;
     height: 100vh;
+<<<<<<< HEAD
+    /* overflow-y: auto; */
+    scroll-behavior: smooth;
+}
+
+.list-product-freeware {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 335px);
+    grid-auto-rows: 363px;
+    gap: 29px;
+    padding: 10px 25px;
+    /* flex-shrink: 0; */
+    /* scrollbar-width: none; */
+    overflow-y: auto;
+}
+.list-product-freeware::-webkit-scrollbar {
+    display: none;
+=======
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -719,4 +748,5 @@ p {
 
 .social-media-contact:active {
     scale: 0.9;
+>>>>>>> c483a90b0f80769e2cb5c10851097074ecdc0ee8
 }
