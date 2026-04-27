@@ -170,7 +170,7 @@ ul {
 
 .icons-active:active {
     transform: scale(0.9);
-    background: #FF9B51;
+    background: #ff9b51;
     transition: 0.1s ease-in-out;
 }
 
@@ -544,28 +544,6 @@ h2 {
 /* ============================================================
    Freeware  (freeware.blade.php)
    ============================================================ */
-
-
-.main-freeware {
-=======
-/* ============================================================
-   CONTACT 
-   ============================================================ */
-
-.main-contact {
->>>>>>> c483a90b0f80769e2cb5c10851097074ecdc0ee8
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    flex: 1;
-    padding: 30px 54px 54px 54px;
-    z-index: 1;
-    height: 100vh;
-<<<<<<< HEAD
-    /* overflow-y: auto; */
-    scroll-behavior: smooth;
-}
-
 .list-product-freeware {
     width: 100%;
     display: grid;
@@ -581,6 +559,23 @@ h2 {
     display: none;
 =======
     overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+
+/* ============================================================
+   CONTACT 
+   ============================================================ */
+
+.main-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
+    padding: 30px 54px 54px 54px;
+    z-index: 1;
+    height: 100vh;
+    /* overflow-y: auto; */
     scroll-behavior: smooth;
 }
 
@@ -618,5 +613,4 @@ h2 {
 
 .social-media-contact:active {
     scale: 0.9;
->>>>>>> c483a90b0f80769e2cb5c10851097074ecdc0ee8
 }
