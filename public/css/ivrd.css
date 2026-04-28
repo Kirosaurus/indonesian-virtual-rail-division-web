@@ -666,7 +666,7 @@ h2 {
     max-width: 1268px;
     background: linear-gradient(225deg, #78838b, #c07944);
     border-radius: 30px;
-    padding: 60px 50px;
+    padding: 10px 50px;
     color: white;
     font-family: "Nexa", sans-serif;
     font-size: 16px;
@@ -674,14 +674,18 @@ h2 {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     max-height: 683px;
+    text-align: justify;
 }
 
-.terms-condition-content h4 {
+.terms-condition-content p {
     font-size: 32px;
-    font-weight: 700px;
     margin-top: 20px;
     margin-bottom: 15px;
     color: white;
+}
+
+.terms-condition-content span{
+    color: #FF9B51;
 }
 
 .terms-condition-content h2:first-child {
@@ -698,6 +702,30 @@ h2 {
 
     overflow-y: auto;
     scroll-behavior: smooth;
+}
+
+/* Terms List Styling */
+.terms-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+.terms-list li {
+    font-size: 25px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    position: relative;
+    line-height: 1.8;
+}
+
+.terms-list li:before {
+    content: "•";
+    position: absolute;
+    left: -20px;
+    color: #f7f7f7;
+    font-weight: bold;
+    font-size: 32px;
 }
 
 /* ============================================================
