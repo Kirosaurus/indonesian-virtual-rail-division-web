@@ -581,9 +581,7 @@ h2 {
     color: white;
 }
 
-/* ============================================================
-   Freeware  (freeware.blade.php)
-   ============================================================ */
+
 
 /* ============================================================
    Freeware  (freeware.blade.php)
@@ -612,6 +610,7 @@ h2 {
     /* scrollbar-width: none; */
     overflow-y: auto;
 }
+
 .list-product-freeware::-webkit-scrollbar {
     display: none;
 
@@ -649,6 +648,56 @@ h2 {
 .title-terms {
     white-space: nowrap;
     font-size: 46px;
+}
+
+
+.terms-condition-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    padding: 40px 20px;
+    overflow-y: auto;
+
+}
+
+.terms-condition-content {
+    width: 100%;
+    max-width: 1268px;
+    background: linear-gradient(225deg, #78838b, #c07944);
+    border-radius: 30px;
+    padding: 60px 50px;
+    color: white;
+    font-family: "Nexa", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: 683px;
+}
+
+.terms-condition-content h4 {
+    font-size: 32px;
+    font-weight: 700px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.terms-condition-content h2:first-child {
+    margin-top: 0;
+}
+
+.terms-condition-content p {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.terms-condition-content::-webkit-scrollbar {
+    display: none;
+
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 /* ============================================================

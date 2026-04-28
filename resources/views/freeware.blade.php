@@ -6,7 +6,7 @@
     <div class="main-freeware">
         {{-- Top bar --}}
         <div style="display: flex; align-items: center; gap: 10px;">
-            <button class="sidebar-button">
+            <button id="sidebar-button">
                 <img src="{{ asset('menu.svg') }}" height="30" width="30" alt="Menu" />
             </button>
             <h1>Freeware</h1>
