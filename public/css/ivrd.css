@@ -48,7 +48,7 @@ ul {
 }
 
 /* Fixed background texture image */
-.background-img {
+.background-img-main {
     width: 100%;
     position: fixed;
     z-index: 0;
@@ -75,6 +75,7 @@ ul {
    SIDEBAR  (newSidebar.tsx → partials/sidebar.blade.php)
    ============================================================ */
 .sidebar {
+    /* display: none; */
     font-family: "Nexa", sans-serif;
     position: relative;
     overflow: hidden;
@@ -220,12 +221,12 @@ ul {
     height: 100vh;
     overflow-y: auto;
     scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 h1 {
     font-family: "Nexa", sans-serif;
     font-weight: 700;
-    font-size: 46px;
     color: white;
 }
 
@@ -286,10 +287,10 @@ h2 {
 
 #product:hover {
     scale: 1.05;
-    box-shadow: 0px 0px 10px 0px #FF9B51;
+    box-shadow: 0px 0px 10px 0px #ff9b51;
 }
 
-#product:active{
+#product:active {
     scale: 0.95;
     transition: 0.1s ease-in-out;
 }
@@ -308,8 +309,8 @@ h2 {
 
 /* Top-bar buttons */
 #sidebar-button {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 40px;
+    min-height: 40px;
     padding: 5px;
     background: #eaefef7a;
     border: none;
@@ -445,7 +446,7 @@ h2 {
     transition: 0.1s ease-in-out;
 }
 
-.container-harga{
+.container-harga {
     font-family: "Nexa";
     color: white;
     font-size: 20px;
@@ -459,7 +460,6 @@ h2 {
     flex: 1;
 }
 
-
 .search-input {
     font-family: "Nexa", sans-serif;
     font-size: 20px;
@@ -472,12 +472,37 @@ h2 {
     padding: 20px;
     background-color: #ffffff;
     color: black;
-    transition: all 1s linear(0 0%, 0 1.8%, 0.01 3.6%, 0.03 6.35%, 0.07 9.1%, 0.13 11.4%, 0.19 13.4%, 0.27 15%, 0.34 16.1%, 0.54 18.35%, 0.66 20.6%, 0.72 22.4%, 0.77 24.6%, 0.81 27.3%, 0.85 30.4%, 0.88 35.1%, 0.92 40.6%, 0.94 47.2%, 0.96 55%, 0.98 64%, 0.99 74.4%, 1 86.4%, 1 100%);
+    transition: all 1s
+        linear(
+            0 0%,
+            0 1.8%,
+            0.01 3.6%,
+            0.03 6.35%,
+            0.07 9.1%,
+            0.13 11.4%,
+            0.19 13.4%,
+            0.27 15%,
+            0.34 16.1%,
+            0.54 18.35%,
+            0.66 20.6%,
+            0.72 22.4%,
+            0.77 24.6%,
+            0.81 27.3%,
+            0.85 30.4%,
+            0.88 35.1%,
+            0.92 40.6%,
+            0.94 47.2%,
+            0.96 55%,
+            0.98 64%,
+            0.99 74.4%,
+            1 86.4%,
+            1 100%
+        );
 }
 
-.search-input:focus{
+.search-input:focus {
     outline-color: #ff7a24;
-    width: 400px;   
+    width: 400px;
     box-shadow: 0px 0px 20px 0px #ff9b51;
 }
 
@@ -638,7 +663,7 @@ h2 {
     scroll-behavior: smooth;
 }
 
-.contaner-harga-freeware{
+.contaner-harga-freeware {
     color: white;
     font-family: "Nexa";
     font-size: 20px;
@@ -662,9 +687,7 @@ h2 {
 
 .title-terms {
     white-space: nowrap;
-    font-size: 46px;
 }
-
 
 .terms-condition-wrapper {
     display: flex;
@@ -673,7 +696,6 @@ h2 {
     flex: 1;
     padding: 40px 20px;
     overflow-y: auto;
-
 }
 
 .terms-condition-content {
@@ -699,8 +721,8 @@ h2 {
     color: white;
 }
 
-.terms-condition-content span{
-    color: #FF9B51;
+.terms-condition-content span {
+    color: #ff9b51;
 }
 
 .terms-condition-content h2:first-child {
@@ -754,7 +776,6 @@ p {
 }
 
 .main-contact {
->>>>>>> c483a90b0f80769e2cb5c10851097074ecdc0ee8
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -808,7 +829,6 @@ p {
 .social-media-section {
     display: flex;
     gap: 40px;
-
 }
 
 .mail-message {
@@ -817,7 +837,7 @@ p {
     height: 631px;
     width: 100%;
     gap: 7px;
-    background: linear-gradient(225deg, #78838B, #C07944);
+    background: linear-gradient(225deg, #78838b, #c07944);
     padding: 30px;
     border-radius: 30px;
     box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
@@ -842,7 +862,7 @@ p {
 }
 
 .mail-message input:focus {
-    outline-color: #FF9B51;
+    outline-color: #ff9b51;
     box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -860,7 +880,7 @@ p {
 }
 
 .mail-message textarea:focus {
-    outline-color: #FF9B51;
+    outline-color: #ff9b51;
     box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -913,7 +933,7 @@ p {
     font-size: 32px;
     padding: 20px 32px;
     border-radius: 30px;
-    background: linear-gradient(225deg, #78838B, #C07944);
+    background: linear-gradient(225deg, #78838b, #c07944);
     color: white;
     border: none;
     transition: 0.1s ease-in-out;
@@ -933,4 +953,141 @@ p {
 
 .social-media-contact:active {
     scale: 0.9;
+}
+
+/* ============================================================
+    LOGIN PAGE 
+   ============================================================ */
+
+.background-img-login {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.main-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    padding: 0px 200px;
+}
+
+.login-content {
+    font-family: "Nexa", sans-serif;
+    display: flex;
+    gap: 72px;
+    text-align: center;
+}
+
+.login-content h4 {
+    font-weight: 800;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    backdrop-filter: blur(5px);
+    padding: 20px 83px;
+    border-radius: 20px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); */
+    box-shadow:
+        0 0 15px #ffffff,
+        0 0 30px #ffffff,
+        0 0 60px #ffffff;
+    height: 680px;
+    width: 627px;
+}
+
+.login-container h2 {
+    font-weight: 800;
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+}
+
+.greet p {
+    text-align: center;
+}
+
+.login-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input-group input {
+    font-family: "Nexa", sans-serif;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 100%;
+    height: 52px;
+    border: 1px solid gray;
+    background-color: #ffff;
+    color: rgb(0, 0, 0);
+    transition: all 0.1s ease-in-out;
+}
+
+.input-group input:focus {
+    outline-color: #ff9b51;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.login-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.login-button-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.login-button-submit {
+    height: 50px;
+    font-size: 24px;
+    background-color: #e76400;
+    color: #ffff;
+    border: none;
+    padding: 7px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.signup-link a {
+    color: #e76400;
+    font-weight: 800;
+}
+
+.signup-link {
+    color: red;
+    text-align: start;
 }
