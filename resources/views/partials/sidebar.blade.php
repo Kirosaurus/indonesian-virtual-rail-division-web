@@ -9,7 +9,6 @@ $links = [
 ['href' => 'terms&condition','label' => 'Terms & Condition','icon_active' => 'tncBlack_icon.svg', 'icon' => 'tncWhite_icon.svg'],
 ['href' => 'contact', 'label' => 'Contact', 'icon_active' => 'contactBlack_icon.svg', 'icon' => 'contactWhite_icon.svg'],
 ['href' => 'how2order', 'label' => 'How to Order', 'icon_active' => 'h2oBlack_icon.svg', 'icon' => 'h2oWhite_icon.svg'],
-['href' => 'FAQ', 'label' => 'FAQ', 'icon_active' => 'faqBlack_icon.svg', 'icon' => 'faqWhite_icon.svg'],
 ];
 @endphp
 

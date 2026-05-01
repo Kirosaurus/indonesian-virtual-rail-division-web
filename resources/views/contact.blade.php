@@ -5,7 +5,7 @@
 @section('content')
 <div class="main-contact">
     <div class="top-container">
-        <button class="sidebar-button">
+        <button id="sidebar-button">
             <img src="{{ asset('menu.svg') }}" height="30" width="30" alt="Menu" />
         </button>
         <h1 style="white-space: nowrap;">Contact Us</h1>

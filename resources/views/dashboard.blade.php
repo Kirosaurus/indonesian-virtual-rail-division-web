@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @push('scripts')
-    @vite('resources/js/dashboard.js')
+@vite('resources/js/dashboard.js')
 @endpush
 
 @section('content')
@@ -26,24 +26,21 @@
     </div>
 
     {{-- New Products --}}
-    <div class="body-element">   
+    <div class="body-element">
         <h2>New Product</h2>
     </div>
 
     <div class="body-element" id="list-product">
 
         {{--
-            Replace this static loop with a dynamic @foreach when
-            you pass $products from your controller, e.g.:
-            Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
             @foreach ($products as $product)
-                <div class="product"> ... </div>
+                <!-- <div class="" id="product"> ... </div> -->
             @endforeach
         --}}
 
         @for ($i = 0; $i < 4; $i++)
-            <div class="product">
+            <div class="" id="product">
             <div class="thumbnail-product">
                 <p style="color: black;">Ini Thumbnail Produk</p>
             </div>
