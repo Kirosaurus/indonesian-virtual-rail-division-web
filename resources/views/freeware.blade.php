@@ -6,7 +6,7 @@
 @vite('resources/js/topbar-functional.js')
 @vite('resources/js/toolbar-functional.js')
 @vite('resources/js/sidebar-functional.js')
-@vite('resources/js/animation/freeware.js')
+@vite('resources/js/animation/pay-free.js')
 @endpush
 
 @section('css')
@@ -102,7 +102,7 @@
         </div>
     </div>
 
-    <div id="list-product-freeware">
+        <div id="list-product-freeware">
 
         {{--
             @foreach ($products as $product)

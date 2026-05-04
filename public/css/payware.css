@@ -316,28 +316,3 @@
     font-weight: 200;
     color: white;
 }
-
-@media screen and (max-width : 1900px) {
-    #list-product-payware {
-        grid-template-columns: repeat(3, auto);
-    }
-}
-
-@media screen and (max-width : 1550px) {
-    #list-product-payware {
-        grid-template-columns: repeat(2, auto);
-    }
-}
-
-@media screen and (max-width : 1200px) {
-    #list-product-payware {
-        grid-template-columns: repeat(1, auto);
-    }
-}
-
-@media screen and (max-width : 940px) {
-    .main-payware {
-        padding: 30px 30px 30px 30px;
-    }
-}
-
