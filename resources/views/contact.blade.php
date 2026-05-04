@@ -3,6 +3,7 @@
 @section('title', 'Contact')
 
 @push('scripts')
+@vite('resources/js/topbar-functional.js')
 @vite('resources/js/sidebar-functional.js')
 @vite('resources/js/responsive-helper/contact.js')
 @endpush
@@ -14,13 +15,15 @@
 
 @section('content')
 <div class="main-contact">
-    <div class="top-container">
+    <div id="top-container">
         <button id="sidebar-button">
             <img src="{{ asset('menu.svg') }}" height="25" width="25" alt="Menu" />
         </button>
         <h1 style="white-space: nowrap;">Contact Us</h1>
         <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-end;">
-            <button class="login-button">Login</button>
+            <a href="{{ url('login') }}">
+                <button class="login-button">Login</button>
+            </a>
         </div>
     </div>
     <div class="body-container">

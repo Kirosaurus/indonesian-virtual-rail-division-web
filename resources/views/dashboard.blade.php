@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @push('scripts')
+    @vite('resources/js/topbar-functional.js')
     @vite('resources/js/animation/dashboard.js')
     @vite('resources/js/sidebar-functional.js')
 @endpush
@@ -22,7 +23,9 @@
             </button>
             <h1 class="top-bar-element">Dashboard</h1>
             <div class="top-bar-element" style="width: 100%; display: flex; flex-direction: column; align-items: flex-end;">
-                <button class="login-button">Login</button>
+                <a href="{{ url('login') }}">
+                    <button class="login-button">Login</button>
+                </a>
             </div>
         </div>
 
@@ -38,14 +41,23 @@
 
         <div class="body-element" id="list-product">
 
-            {{--
+            <!-- {{-- -->
 
             @foreach ($products as $product)
             <!-- <div class="" id="product"> ... </div> -->
+             <div class="" id="product">
+                    <div class="thumbnail-product">
+                        <p style="color: black;">Ini Thumbnail Produk</p>
+                    </div>
+                    <p class="nama-produk">{{$product->name}}</p>
+                    <p class="deskripsi-singkat-produk">
+                        {{$product->description}}
+                    </p>
+                </div>
             @endforeach
-            --}}
+            <!-- --}} -->
 
-            @for ($i = 0; $i < 8; $i++)
+            <!-- @for ($i = 0; $i < 8; $i++)
                 <div class="" id="product">
                     <div class="thumbnail-product">
                         <p style="color: black;">Ini Thumbnail Produk</p>
@@ -56,7 +68,7 @@
                         sed do eiusmod tempor (Maksimal 120 karakter spasi juga ikut)
                     </p>
                 </div>
-            @endfor
+            @endfor -->
 
         </div>
     </div>

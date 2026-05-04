@@ -41,7 +41,7 @@ ul {
 h1 {
     font-family: "Nexa", sans-serif;
     font-weight: 700;
-    /* font-size: 46px; */
+    white-space: nowrap;
     color: white;
 }
 
@@ -135,20 +135,18 @@ h2 {
 
 .sidebar.sidebar-hidden {
     margin-left: -327px;
-    /* Pulls the sidebar exactly its width to the left */
 }
 
-/* Checkboard overlay texture */
 .sidebar-overlay {
-    width: 2000px;
-    height: 1119px;
+    width: auto;
+    height: auto;
     position: absolute;
     inset: 0;
     z-index: -1;
     mix-blend-mode: multiply;
-    transform: rotate(5.65deg) translate(-50px);
-    /* scale: 1; */
-    pointer-events: none;
+    transform: rotate(5.65deg) translateX(-5000px) translateY(-1500px);
+    scale: 0.5;
+    object-fit: cover;
 }
 
 #sidebar-button {
@@ -368,28 +366,67 @@ h2 {
     transition: 0.1s ease-in-out;
 }
 
-.top-container {
-    border-radius: 10px ;
+#top-container {
+    border-radius: 10px;
     padding: 10px;
-    top: 0;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     position: sticky;
     gap: 10px;
     z-index: 10;
+    background: transparent;
     transition: 0.2s ease-in-out;
 }
 
-.top-container.scrolled{
+#top-container.scrolled{
+    display: flex;
     width: 100%;
-    background-color: #25343fe1;
+    top: 20px;
+    background-color: #25343f88;
     backdrop-filter: blur(10px);
+    gap: 20px;
 }
 
 .heading {
-    gap: 10px;
+    gap: 20px;
     display: flex;
-    align-content: center;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.title{
+    gap: 20px;
+    display: flex;
     align-items: center;
+    align-content: center;
     justify-content: center;
+}
+
+.toolbar{
+    width: 100%;
+    display: flex;
+    align-content:center ;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.toolbar.hide{
+    display: none;
+    scale: 0.9;
+    filter: blur(10px);
+    opacity: 0;
+}
+
+.main-page{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
+    padding: 0px 54px 30px 54px;
+    z-index: 1;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }

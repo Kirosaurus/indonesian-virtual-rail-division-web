@@ -62,88 +62,175 @@ document.querySelector(".sort-button").addEventListener("click", () => {
     }
 })
 
-const ascdscButton = document.querySelector(".ascend-descend-button");
-const ascdscText = ascdscButton.querySelector("span");
+const ascdscButton = document.querySelectorAll(".ascend-descend-button");
 const ascdscImg = document.querySelector(".arrow-sort");
 
-ascdscButton.addEventListener("click", () => {
-        is_ascending = !is_ascending;
-        ascdscText.textContent = is_ascending ? "Ascending" : "Descending";
-        if(is_ascending){
-            ascdscImg.classList.add("ascending")
-            ascdscImg.classList.remove("descending")
-        }
-        else{
-            ascdscImg.classList.add("descending")
-            ascdscImg.classList.remove("ascending")
-
-        }
-    });
-
-
+ascdscButton.forEach((item, i) =>{
+    item.addEventListener("click", () => {
+    const ascdscText = ascdscButton[i].querySelectorAll("span");
+    is_ascending = !is_ascending;
+    ascdscText.textContent = is_ascending ? "Ascending" : "Descending";
+    if (is_ascending) {
+        ascdscImg.classList.add("ascending")
+        ascdscImg.classList.remove("descending")
+    }
+    else {
+        ascdscImg.classList.add("descending")
+        ascdscImg.classList.remove("ascending")
+    }
+});
+})
 
 
 //SEARCH BARRR
 let search_active = 0;
-const searchBox = document.querySelector(".search-input")
-const searchIcon = document.querySelector(".search-icon")
-const searchBar = document.querySelector(".search-bar")
-const listSortir = document.querySelector(".list-sortir")
-const toolbar = document.getElementById("toolbar")
+const searchBox = document.querySelectorAll(".search-input")
+const searchIcon = document.querySelectorAll(".search-icon")
+const searchBar = document.querySelectorAll(".search-bar")
+const listSortir = document.querySelectorAll(".list-sortir")
+const toolbar = document.querySelectorAll(".toolbar")
 
-searchIcon.addEventListener("mousedown", () => {
-    event.preventDefault();
-})
 
-searchIcon.addEventListener("click", () => {
-
-    if (!search_active) {
-        if (toolbar.offsetWidth <= 600) {
-            listSortir.classList.add("hide")
-            sortirDropdown.classList.remove("show");
-            document.querySelectorAll(".sort").forEach((item, i) => {
-                item.classList.remove("show");
-            })
+document.addEventListener("DOMContentLoaded", () => {
+    toolbar.forEach((item, i) => {
+        if (toolbar[i].offsetWidth <= 500) {
+            searchBox[i].classList.add("compact");
+            const ascdscText = ascdscButton[i].querySelectorAll("span");
+            if(toolbar[i].offsetWidth <= 300){
+                ascdscText[i].style.display = 'none';
+            }
+            else{
+                ascdscText[i].style.display = 'flex';
+            }
         }
-        search_active = 1
-        searchBox.classList.add("focus");
-        searchBar.classList.add("focus");
-        searchBox.focus();
+        else {
+            searchBox[i].classList.remove("compact");
+        }
+    })
+
+    if (document.getElementById("top-container").offsetWidth <= 900) {
+        console.log("Full")
+        toolbar[0].classList.add("hide")
+        toolbar[1].classList.remove("hide")
+    }
+    else {
+        console.log("Compact")
+        toolbar[1].classList.add("hide")
+        toolbar[0].classList.remove("hide")
     }
 })
-searchBox.addEventListener("blur", () => {
-    search_active = 0;
-    searchBox.classList.remove("focus");
-    searchBar.classList.remove("focus");
-    setTimeout(() => {
-        listSortir.classList.remove("hide");
-    }, 1000);
+
+window.addEventListener("resize", () => {
+    toolbar.forEach((item, i) => {
+        if (toolbar[i].offsetWidth <= 500) {
+            searchBox[i].classList.add("compact");
+            const ascdscText = ascdscButton[i].querySelectorAll("span");
+            if(toolbar[i].offsetWidth <= 300){
+                ascdscText[i].style.display = 'none';
+            }
+            else{
+                ascdscText[i].style.display = 'flex';
+            }
+        }
+        else {
+            searchBox[i].classList.remove("compact");
+        }
+    })
+
+    if (document.getElementById("top-container").offsetWidth <= 900) {
+        console.log("Full")
+        toolbar[0].classList.add("hide")
+        toolbar[1].classList.remove("hide")
+    }
+    else {
+        console.log("Compact")
+        toolbar[1].classList.add("hide")
+        toolbar[0].classList.remove("hide")
+    }
 })
 
 
-document.addEventListener("DOMContentLoaded", () =>{
-    ascdscText.textContent = is_ascending ? "Ascending" : "Descending";
-    document.querySelectorAll(".sort").forEach((item, i) => {
-        if (sort_by[i].active) {
-            item.classList.add("active")
+
+searchIcon.forEach((item, i) => {
+    item.addEventListener("mousedown", () => {
+        event.preventDefault();
+    })
+})
+
+searchBox.forEach((item, i) => {
+    item.addEventListener("focus", () => {
+        if (!search_active) {
+            if (toolbar[i].offsetWidth <= 600) {
+                listSortir[i].classList.add("hide")
+                sortirDropdown.classList.remove("show");
+                document.querySelectorAll(".sort").forEach((item, i) => {
+                    item.classList.remove("show");
+                })
+            }
+            search_active = 1
+            searchBox[i].classList.add("focus");
+            searchBar[i].classList.add("focus");
+            searchBox[i].focus();
         }
     })
 })
 
+searchIcon.forEach((item, i) => {
+    item.addEventListener("click", () => {
+
+        if (!search_active) {
+            if (toolbar[i].offsetWidth <= 600) {
+                listSortir[i].classList.add("hide")
+                sortirDropdown.classList.remove("show");
+                document.querySelectorAll(".sort").forEach((item, i) => {
+                    item.classList.remove("show");
+                })
+            }
+            search_active = 1
+            searchBox[i].classList.add("focus");
+            searchBar[i].classList.add("focus");
+            searchBox[i].focus();
+        }
+    })
+})
+
+searchBox.forEach((item, i) => {
+    item.addEventListener("blur", () => {
+        search_active = 0;
+        searchBox[i].classList.remove("focus");
+        searchBar[i].classList.remove("focus");
+        setTimeout(() => {
+            listSortir[i].classList.remove("hide");
+        }, 1000);
+    })
+})
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     ascdscText.textContent = is_ascending ? "Ascending" : "Descending";
+//     document.querySelectorAll(".sort").forEach((item, i) => {
+//         if (sort_by[i].active) {
+//             item.classList.add("active")
+//         }
+//     })
+// })
+
 //Top Container - Dengarkan scroll pada .page-content
-const top_container = document.querySelector(".top-container");
-const pageContent = document.querySelector(".main-payware");
+const top_container = document.getElementById("top-container");
+const pageContent = document.querySelectorAll(".main-page");
 
 if (pageContent) {
-    pageContent.addEventListener("scroll", () => {
-        if (pageContent.scrollTop > 0) {
-            console.log("Scrolled");
-            top_container.classList.add("scrolled");
-        } else {
-            console.log("Not scrolled");
-            top_container.classList.remove("scrolled");
-        }
-    });
+    pageContent.forEach((item, i) => {
+        pageContent[i].addEventListener("scroll", () => {
+            console.log("Masuk")    
+            if (pageContent[i].scrollTop > 0) {
+                console.log("Scrolled");
+                top_container.classList.add("scrolled");
+            } else {
+                console.log("Not scrolled");
+                top_container.classList.remove("scrolled");
+            }
+        });
+    })
 }
 
 
