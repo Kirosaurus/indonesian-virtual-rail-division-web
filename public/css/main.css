@@ -345,7 +345,7 @@ h2 {
 
 
 /* List Product */
-#product {
+.product-card {
     background: linear-gradient(225deg, #78838b, #c07944);
     padding: 15px;
     min-width: 200px;
@@ -360,12 +360,12 @@ h2 {
     cursor: pointer;
 }
 
-#product:hover {
+.product-card:hover {
     scale: 1.05;
     box-shadow: 0px 0px 10px 0px #FF9B51;
 }
 
-#product:active {
+.product-card:active {
     scale: 0.95;
     transition: 0.1s ease-in-out;
 }

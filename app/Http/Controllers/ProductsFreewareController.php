@@ -15,5 +15,5 @@ class ProductsFreewareController extends Controller
         return view('freeware', [
             'products' => $products_freeware
         ]);
-}
+    }
 }

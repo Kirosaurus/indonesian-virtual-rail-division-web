@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
+        Schema::create('announcement', function (Blueprint $table) {
+        $table->id();
+        $table->string('image');
+        $table->boolean('active')->default(true);
+        $table->timestamps();
+        }); 
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+         Schema::dropIfExists('announcement');
     }
 };

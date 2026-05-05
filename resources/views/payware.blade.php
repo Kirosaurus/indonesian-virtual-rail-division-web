@@ -3,6 +3,7 @@
 @section('title', 'Payware')
 
 @push('scripts')
+@vite('resources/js/products-popup.js')
 @vite('resources/js/topbar-functional.js')
 @vite('resources/js/toolbar-functional.js')
 @vite('resources/js/sidebar-functional.js')
@@ -83,10 +84,75 @@
 
     {{-- New Products --}}
 
+    <div id="product-modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" type="button" data-close="true">×</button>
+            <div class="left-modal">
+                <div id="modal-thumb-viewer">
+                    <img class="modal-thumb" alt="Product image" />
+                </div>
+                <div class="list-thumbnail">
+                    <div class="additional-thumbnails">
+                        <img class="modal-thumb" alt="Product image" />
+                    </div>
+                    <div class="additional-thumbnails">
+                        <img class="modal-thumb" alt="Product image" />
+                    </div>
+                    <div class="additional-thumbnails">
+                        <img class="modal-thumb" alt="Product image" />
+                    </div>
+                    <div class="additional-thumbnails">
+                        <img class="modal-thumb" alt="Product image" />
+                    </div>
+                </div>
+            </div>
+            <div class="right-modal">
+                <h3 id="modal-name"></h3>
+                <div class="modal-price">
+                    <span id="modal-price"></span>
+                </div>
+                <p id="modal-desc"></p>
+                <div class="tag-products">
+                    <div class="tag">
+                        <span>Tag 1</span>
+                    </div>
+                    <div class="tag">
+                        <span>Tag 2</span>
+                    </div>
+                    <div class="tag">
+                        <span>Tag 3</span>
+                    </div>
+                </div>
+                <div class="action-container">
+                    <span>Mau tanya-tanya atau mau beli produknya? Hubungi kontak di bawah ini.</span>
+                    <div class="whatsapp-contact">
+                        <button class="social-media-contact">
+                            <a>
+                                <img src="{{ asset('whatsapp-icon.svg') }}">
+                                <p>WhatsApp 1</p>
+                            </a>
+                            <button class="social-media-contact">
+                                <a>
+                                    <img src="{{ asset('whatsapp-icon.svg') }}">
+                                    <p>WhatsApp 2</p>
+                                </a>
+                            </button>
+                        </div>
+                        <button class="modal-action" type="button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="modal-overlay" data-close="true"></div> -->
+    </div>
     <div class="list-product-container">
         <div id="list-product-pay-free" class="list-product-payware">
             @foreach ($products as $product)
-            <div class="" id="product">
+            <div class="product-card" id="product"
+                data-name="{{ $product->name }}"
+                data-desc="{{ $product->description }}"
+                data-price="Rp. {{ $product->price }}"
+                data-img="{{ asset('storage/(DAOP YK-SGU Android) Trainz  (120.3) 16_11_2025 11_48_40.png') }}">
+                <!-- data-img="{{ asset('storage/' . $product->image) }}"> -->
                 <div class="thumbnail-product">
                     <p style="color: black;">Ini Thumbnail Produk</p>
                 </div>
@@ -98,6 +164,7 @@
                     <span>Rp. {{$product->price}}</span>
                 </div>
             </div>
+
             @endforeach
             {{--
             @for ($i = 0; $i < 12; $i++)
@@ -115,7 +182,7 @@
                 </div>
         </div>
         @endfor
-
+        --}}
         </div>
     </div>
 </div>
