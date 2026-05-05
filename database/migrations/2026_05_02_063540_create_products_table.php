@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 8, 2);
             $table->string('category');
+            $table->boolean('active')->default(0);
+            $table->binary('image');
             $table->timestamps();
         });
     }
