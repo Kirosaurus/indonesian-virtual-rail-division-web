@@ -51,7 +51,13 @@
 
     {{-- Announcement banner --}}
     <div class="body-element" id="announce">
-        <p>Ini Buat Announcement</p>
+        @foreach ($announcements as $announcement)
+        <img
+            class="announcement"
+            src="{{ asset('storage/Announcements/'. $announcement->image) }}"
+            alt="Announcement"
+        >
+        @endforeach
     </div>
 
     {{-- New Products --}}

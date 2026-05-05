@@ -29,6 +29,12 @@
     background-color: white;
 }
 
+.announcement{
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
 /* Horizontal product scroller */
 #list-product {
     width: 100%;

@@ -126,24 +126,25 @@
                 <div class="action-container">
                     <span>Mau tanya-tanya atau mau beli produknya? Hubungi kontak di bawah ini.</span>
                     <div class="whatsapp-contact">
-                        <button class="whatsapp-order-button">
-                            <a>
+                        <a href="https://wa.me/+6282131520905">
+                            <button class="whatsapp-order-button">
                                 <img src="{{ asset('whatsapp-icon.svg') }}">
                                 <p>WhatsApp 1</p>
-                            </a>
-                            <button class="whatsapp-order-button">
-                                <a>
-                                    <img src="{{ asset('whatsapp-icon.svg') }}">
-                                    <p>WhatsApp 2</p>
-                                </a>
                             </button>
+                        </a>
+                        <a href="https://wa.me/+6289601056281">
+                            <button class="whatsapp-order-button">
+                                <img src="{{ asset('whatsapp-icon.svg') }}">
+                                <p>WhatsApp 2</p>
+                            </button>
+                        </a>
                     </div>
                     <!-- <button class="modal-action" type="button">Buy Now</button> -->
                 </div>
                 <div class="S&K">
-                    <span>Dengan membeli produk ini, anda sudah membaca dan setuju dengan 
+                    <span>Dengan membeli produk ini, anda sudah membaca dan setuju dengan
                         <a href="/terms&condition" target="_blank">syarat dan ketentuan</a> yang berlaku.</span>
-                    </div>
+                </div>
             </div>
         </div>
         <div class="modal-overlay" data-close="true"></div>
@@ -155,7 +156,7 @@
                 data-name="{{ $product->name }}"
                 data-desc="{{ $product->description }}"
                 data-price="Rp. {{ $product->price }}"
-                data-img="{{ asset('storage/(DAOP YK-SGU Android) Trainz  (120.3) 16_11_2025 11_48_40.png') }}">
+                data-img="{{ asset('storage/Payware/(DAOP YK-SGU Android) Trainz  (120.3) 16_11_2025 11_48_40.png') }}">
                 <!-- data-img="{{ asset('storage/' . $product->image) }}"> -->
                 <div class="thumbnail-product">
                     <p style="color: black;">Ini Thumbnail Produk</p>

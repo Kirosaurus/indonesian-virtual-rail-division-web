@@ -1,14 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductsPaywareController;
 use App\Http\Controllers\ProductsFreewareController;
+use App\Http\Controllers\AnnouncementsController;
 use App\Http\Controllers\AuthController;
-use App\Models\ProductFreeware;
 
-Route::get('/', function () {
-    return view('dashboard', [ProductController::class, 'index']);
-});
+Route::get('/', [AnnouncementsController::class, 'index']);
 Route::get('/admin', function () {
     return view('dashboard_admin');
 });
@@ -16,7 +14,7 @@ Route::get('/admin/create', function () {
     return view('dashboard_admin_create');
 });
 
-Route::get('/payware', [ProductController::class, 'index']);
+Route::get('/payware', [ProductsPaywareController::class, 'index']);
 
 Route::get('/freeware', [ProductsFreewareController::class, 'index']);
 

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product; 
+use App\Models\ProductsPayware;
 
-class ProductController extends Controller
+class ProductsPaywareController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = ProductsPayware::all();
 
         return view('payware', [
             'products' => $products
         ]);
-}
+    }
 }
