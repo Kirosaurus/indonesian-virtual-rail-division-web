@@ -30,7 +30,9 @@
             </form>
             <p class="signup-link">Are you new? Let's <a href="/register">Sign up</a></p>
         </div>
-        <h4>© IVRD Copyright 2026 | <a href="">About Us</a></h4>
+        <h4>© IVRD Copyright 2026 | 
+            <!-- <a href="">About Us</a> -->
+        </h4>
     </div>
 </div>
 @endsection

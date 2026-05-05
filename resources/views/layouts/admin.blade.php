@@ -12,7 +12,6 @@
 
 <body>
     <main class="app-root">
-
         <div class="app-wrapper">
             {{-- Page content --}}
             <div class="page-content">
