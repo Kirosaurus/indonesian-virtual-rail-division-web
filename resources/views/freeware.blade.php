@@ -72,14 +72,23 @@
     <div class="list-product-container">
         <div id="list-product-freeware">
 
-            {{--
             @foreach ($products as $product)
-            <div class="product"> ... </div>
+            <div class="" id="product">
+                <div class="thumbnail-product"> 
+                    <p style="color: black;">Ini Thumbnail Produk</p>
+                </div>
+                <p class="nama-produk">{{$product->name}}</p>
+                <p class="deskripsi-singkat-produk">
+                   {{$product->description}} 
+                </p>
+                <div class="container-harga-freeware">
+                    <span><br>FREE</span>
+                </div>
+        </div>
             @endforeach
-            --}}
-
+            {{--
             @for ($i = 0; $i < 12; $i++)
-                <div class="" id="product">
+            <div class="" id="product">
                 <div class="thumbnail-product"> 
                     <p style="color: black;">Ini Thumbnail Produk</p>
                 </div>
@@ -91,8 +100,9 @@
                 <div class="container-harga-freeware">
                     <span><br>FREE</span>
                 </div>
-        </div>
-        @endfor
+            </div>
+            @endfor
+        --}}
     </div>
 </div>
 </div>

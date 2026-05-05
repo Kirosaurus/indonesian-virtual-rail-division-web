@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\produtcs_freeware;
+
 
 
 Route::get('/', function () {
@@ -16,9 +18,7 @@ Route::get('/admin/create', function () {
 
 Route::get('/payware', [ProductController::class, 'index']);
 
-Route::get('/freeware', function () {
-    return view('freeware');
-});
+Route::get('/freeware', [produtcs_freeware::class, 'index']);
 
 Route::get('/terms&condition', function () {
     return view('terms&condition');
