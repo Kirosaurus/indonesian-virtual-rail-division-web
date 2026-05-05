@@ -13,7 +13,7 @@ Route::get('/admin', function () {
     return view('dashboard_admin');
 });
 Route::get('/admin/create', function () {
-    return view('dashboard_admin_create');
+    return view('dashboard_admin_payware_create');
 });
 
 Route::get('/payware', [ProductController::class, 'index']);
@@ -36,6 +36,14 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
-Route::get('/admin', function () {
-    return view('dashboard_admin');
+Route::get('/admin/payware', function () {
+    return view('dashboard_admin_payware');
+})->middleware('auth');
+
+Route::get('/admin/freeware', function () {
+    return view('dashboard_admin_freeware');
+})->middleware('auth');
+
+Route::get('/admin/announcement', function () {
+    return view('dashboard_admin_announcement');
 })->middleware('auth');
