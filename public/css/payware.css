@@ -107,10 +107,15 @@
 }
 
 .container-harga {
+    height: 100%;
+    width: 100%;
     font-family: "Nexa";
     color: white;
     font-size: 20px;
     font-weight: 800;
+    display: flex;
+    justify-items: flex-start;
+    align-items: flex-end;
 }
 
 .sort:hover {
@@ -134,17 +139,17 @@
     scale: 0.95;
 }
 
-#list-product-payware {
+.list-product-payware {
     width: 100%;
     height: auto;
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-auto-rows :auto;
+    grid-auto-rows: auto;
     gap: 30px;
     padding: 20px 25px;
 }
 
-.list-product-container{
+.list-product-container {
     container-type: inline-size;
     container-name: listProduct;
 }
@@ -157,7 +162,7 @@
 .thumbnail-product {
     background-color: white;
     width: auto;
-    height: 100%;
+    height: 171px;
     aspect-ratio: 16/9;
     border-radius: 20px;
     display: flex;
@@ -180,20 +185,244 @@
     color: white;
 }
 
+.modal.hidden {
+    filter: blur(30px); 
+    scale: 0.9;
+    opacity: 0;
+    z-index: -1;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    transition: all 0.5s ease-in-out;
+}
+
+.modal-overlay {
+    transition: all 0.5s ease-in-out;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay.hidden{
+    backdrop-filter: blur(0px);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.modal-card {
+    font-family: "Nexa", sans-serif;
+    padding: 45px;
+    border-radius: 50px;
+    width: 100%;
+    height: auto;
+    margin: auto 240px;
+    background: linear-gradient(225deg, #78838b, #c07944);
+    color: white;
+    opacity: 100%;
+    display: flex;
+    gap: 25px;
+    box-shadow: 0px 0px 180px 0px rgba(0, 0, 0, 0.25), 0px 0px 70px 0px #BC7A48;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+}
+
+.left-modal {
+    width: 749px;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.list-thumbnail {
+    display: flex;
+    gap: 15px;
+}
+
+#modal-thumb-viewer {
+    width: 749px;
+    height: 420px;
+}
+
+#modal-thumb-viewer img {
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ganti ke contain jika ingin seluruh gambar terlihat */
+    display: block;
+}
+
+.additional-thumbnails {
+    display: flex;
+    min-width: 175px;
+    min-height: 175px;
+}
+
+.additional-thumbnails img {
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ganti ke contain jika ingin seluruh gambar terlihat */
+    display: block;
+}
+
+#modal-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FF9B51;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 30px #FF9B51;
+}
+
+.whatsapp-contact{
+    display: flex;
+    flex-direction: row;
+}
+
+.right-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.right-modal span a{
+    font-family: "Nexa", sans-serif;
+    font-weight: 800;
+    color: #FF9B51;
+    text-decoration: underline;
+}
+
+.tag-products{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.tag{
+    font-family: "Nexa", sans-serif;
+    font-weight: 800;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    padding: 12px 20px;
+    height: 47px;
+}
+
+.S&K{
+    font-family: "Nexa", sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    color: white;
+}
+
+.action-container {
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-media-contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: "Nexa";
+    font-weight: 800;
+    font-size: 32px;
+    padding: 20px 32px;
+    border-radius: 30px;
+    background: linear-gradient(225deg, #78838b, #c07944);
+    color: white;
+    border: none;
+    transition: 0.1s ease-in-out;
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
+}
+
+.social-media-contact a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.social-media-contact:hover {
+    scale: 1.1;
+}
+
+.social-media-contact:active {
+    scale: 0.9;
+}
+
+.whatsapp-order-button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: "Nexa";
+    font-weight: 800;
+    font-size: 20px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    background-color: #FF9B51;
+    color: white;
+    border: none;
+    transition: 0.1s ease-in-out;
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-order-button:hover {
+    scale: 1.05;
+}
+
+.whatsapp-order-button:active {
+    scale: 0.95;
+}
+
+.whatsapp-order-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.whatsapp-contact{
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
 @container listProduct (max-width : 1000px) {
-    #list-product-payware {
+    .list-product-payware {
         grid-template-columns: repeat(3, auto);
     }
 }
 
 @container listProduct (max-width : 750px) {
-    #list-product-payware {
+    .list-product-payware {
         grid-template-columns: repeat(2, auto);
     }
 }
 
 @container listProduct (max-width : 500px) {
-    #list-product-payware {
+    .list-product-payware {
         grid-template-columns: repeat(1, auto);
     }
 }

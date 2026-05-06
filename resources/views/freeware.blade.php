@@ -44,7 +44,6 @@
                         <div class="sortir">
                             <button class="sort">Price</button>
                             <button class="sort">Name</button>
-                            <button class="sort">Rating</button>
                         </div>
                     </div>
                     <button class="ascend-descend-button">
@@ -73,7 +72,7 @@
         <div id="list-product-freeware">
 
             @foreach ($products as $product)
-            <div class="" id="product">
+            <div class="product-card" id="product">
                 <div class="thumbnail-product"> 
                     <p style="color: black;">Ini Thumbnail Produk</p>
                 </div>

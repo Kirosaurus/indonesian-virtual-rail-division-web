@@ -345,10 +345,11 @@ h2 {
 
 
 /* List Product */
-#product {
+.product-card {
     background: linear-gradient(225deg, #78838b, #c07944);
     padding: 15px;
     min-width: 200px;
+    max-width: 348px;
     height: auto;
     border-radius: 30px;
     display: flex;
@@ -359,12 +360,12 @@ h2 {
     cursor: pointer;
 }
 
-#product:hover {
+.product-card:hover {
     scale: 1.05;
     box-shadow: 0px 0px 10px 0px #FF9B51;
 }
 
-#product:active {
+.product-card:active {
     scale: 0.95;
     transition: 0.1s ease-in-out;
 }
@@ -558,6 +559,49 @@ h2 {
     scale: 0.9;
 }
 
+/* User card (top bar) */
+#user-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 50px;
+    padding: 6px 14px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #1f2b34, #2f3f4a);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: white;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.user-avatar img {
+    width: 22px;
+    height: 22px;
+    filter: grayscale(1) brightness(0.4);
+}
+
+.user-name {
+    font-family: "Nexa", sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.1;
+}
+
+.user-email {
+    font-family: "Nexa", sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
 
 @container topbar (max-width: 900px) {
     .left-top-container {
@@ -583,6 +627,14 @@ h2 {
 
 @container topbar (max-width:500px) {
     .ascend-descend-button span {
+        display: none;
+    }
+
+    .user-name{
+        display: none;
+    }
+
+    .user-email{
         display: none;
     }
 
