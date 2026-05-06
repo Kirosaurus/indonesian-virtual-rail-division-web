@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('category');
+            $table->string('tag1')->nullable();
+            $table->string('tag2')->nullable();
+            $table->string('tag3')->nullable();
             $table->timestamps();
         }); 
     }

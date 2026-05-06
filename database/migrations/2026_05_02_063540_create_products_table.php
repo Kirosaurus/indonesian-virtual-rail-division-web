@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('category');
             $table->boolean('active')->default(0);
             $table->binary('image');
+            $table->string('tag1')->nullable();
+            $table->string('tag2')->nullable();
+            $table->string('tag3')->nullable();          
             $table->timestamps();
         });
     }
