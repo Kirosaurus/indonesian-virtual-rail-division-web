@@ -32,21 +32,6 @@
                 <h1 class="top-bar-element">Dashboard</h1>
             </div>
             <div class="top-bar-element" style="width: 100%; display: flex; flex-direction: column; align-items: flex-end;">
-                @auth
-                <div class="top-bar-element" id="user-card">
-                    <div class="user-avatar">
-                        <img src="{{ asset('user_icon.svg') }}" alt="User" />
-                    </div>
-                    <div class="user-info">
-                        <p class="user-name">{{ auth()->user()->name }}</p>
-                        <p class="user-email">{{ auth()->user()->email }}</p>
-                    </div>
-                </div>
-                @else
-                <a href="{{ url('login') }}">
-                    <button class="login-button">Login</button>
-                </a>
-                @endauth
             </div>
         </div>
     </div>

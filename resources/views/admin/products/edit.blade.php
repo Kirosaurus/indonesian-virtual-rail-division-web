@@ -286,16 +286,17 @@
     </div>
     <div class="container">
         <div class="top-card">
-            <h2>Create New Product</h2>
+            <h2>Edit Product '{{ $product->name}}'</h2>
         </div>
 
 
 
-        <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="name">Product Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="{{$product->name}}" required>
             </div>
 
             <div class="form-group">
@@ -307,19 +308,19 @@
                 <label for="type">Type</label>
                 <select id="type" name="type" required>
                     <option value="">Select a Type</option>
-                    <option value="payware">Payware</option>
-                    <option value="freeware">Freeware</option>
+                    <option value="payware" {{ $product->type === 'payware' ? 'selected' : '' }}>Payware</option>
+                    <option value="freeware" {{ $product->type === 'freeware' ? 'selected' : '' }}>Freeware</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" required></textarea>
+                <textarea id="description" name="description" required>{{$product->description}}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="price">Price (IDR)</label>
-                <input type="number" id="price" name="price" step="0.01" min="0" required>
+                <input type="number" id="price" name="price" step="0.01" min="0" value="{{$product->price}}" required>
             </div>
 
             <div class="form-group">
@@ -328,7 +329,7 @@
                     <select id="category" name="category" required>
                         <option value="">Select a Category</option>
                         @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{ $product->category_id === $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                         @endforeach
                     </select>
                     <div id="add-category-btn">
@@ -336,17 +337,22 @@
                     </div>
                 </div>
             </div>
-
+            @php
+            $tags = $product->tags->pluck('name');
+            $tagValue = '';
+            foreach($tags as $tag)
+            $tagValue = $tagValue . $tag . ',';
+            @endphp
             <div class="form-group">
                 <label for="tags">Tags (pisahkan dengan koma)</label>
-                <textarea id="tags" name="tags" placeholder="Android Version, Android Only, All Support,..."></textarea>
+                <textarea id="tags" name="tags" placeholder="Android Version, Android Only, All Support,...">{{ $tagValue }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="active">Active</label>
                 <select id="active" name="active">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
+                    <option value="1" {{$product->active === 1? 'selected' : ''}}>Yes</option>
+                    <option value="0" {{$product->active === 0? 'selected' : ''}}>No</option>
                 </select>
             </div>
             @if ($errors->any())
@@ -358,7 +364,7 @@
             @endif
             <div class="button-group">
                 <a href="{{ route('admin.products.index') }}" class="btn btn-cancel">Cancel</a>
-                <button type="submit" class="btn btn-save">Save Product</button>
+                <button type="submit" class="btn btn-save">Edit Product</button>
             </div>
         </form>
     </div>
@@ -377,8 +383,9 @@
                 price.removeAttribute('required');
             } else {
                 price.disabled = 0;
-                price.value = '';
-                price.setAttribute('required', 'required');
+                if(!price.value){
+                    price.setAttribute('required', 'required');
+                }
             }
 
         }

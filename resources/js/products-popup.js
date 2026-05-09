@@ -10,7 +10,7 @@ const whatsappList = document.querySelectorAll(".whatsapp-contact > a");
 const waLink = ['https://wa.me/+6281366950138', 'https://wa.me/+6289601056281']
 
 document.querySelectorAll('.product-card').forEach(card => {
-  card.addEventListener('click', function () {
+  crd.aaddEventListener('click', function () {
     const name = this.dataset.name;
     const desc = this.dataset.desc;
     const price = this.dataset.price;

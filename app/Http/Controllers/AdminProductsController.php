@@ -57,17 +57,17 @@ class AdminProductsController extends Controller
         $files = null;
         if ($request->hasFile('image')) {
             $files = $request->file('image', []);
-            
-            foreach ($files as $file) {
-            $path = $file->store('image-products', 'public');
 
-            Images::create([
-                'product_id' => $product->id,
-                'path' => $path,
-            ]);
+            foreach ($files as $file) {
+                $path = $file->store('image-products', 'public');
+
+                Images::create([
+                    'product_id' => $product->id,
+                    'path' => $path,
+                ]);
+            }
         }
-        }
-        
+
         $raw = $request->input('tags', '');
         $names = collect(preg_split('/[,\n]+/', $raw))
             ->map(fn($t) => trim($t))
@@ -79,12 +79,28 @@ class AdminProductsController extends Controller
         return redirect()->route('admin.products.index')->with('success', 'Product created successfully!');
     }
 
-    public function edit(Products $product){
-        $categories = Categories::all();    
+    public function edit(Products $product)
+    {
+        $categories = Categories::all();
 
-        return view ('admin.products.edit', [
+        return view('admin.products.edit', [
             'product' => $product,
             'categories' => $categories
+        ]);
+    }
+
+    public function update(Request $request, Products $product)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'image' => 'nullable|array',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif',
+            'type' => 'string|in:payware,freeware',
+            'description' => 'required|string',
+            'price' => 'required_if:type,payware|numeric|min:0',
+            'category' => 'required|exists:categories,id',
+            'tags' => 'string|max:1000',
+            'active' => 'boolean'
         ]);
     }
 }
