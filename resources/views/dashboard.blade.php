@@ -5,6 +5,7 @@
 @push('scripts')
 @vite('resources/js/topbar-functional.js')
 @vite('resources/js/animation/dashboard.js')
+@vite('resources/js/animation/announcements-animation.js')
 @vite('resources/js/animation/pay-free.js')
 @vite('resources/js/sidebar-functional.js')
 @endpush
@@ -52,12 +53,23 @@
 
     {{-- Announcement banner --}}
     <div class="body-element" id="announce">
-        @foreach ($announcements as $announcement)
-        <img
-            class="announcement"
-            src="{{ asset('storage/Announcements/'. $announcement->image) }}"
-            alt="Announcement">
-        @endforeach
+        <div class="announcement-container">
+            <div class="announcement-wrapper">
+                @foreach ($announcements as $announcement)
+                <img
+                    class="announcement"
+                    src="{{ asset('storage/'. $announcement->image) }}"
+                    alt="Announcement">
+                @endforeach
+                {{-- Duplicate first image untuk seamless loop --}}
+                @if($announcements->count() > 0)
+                <img
+                    class="announcement"
+                    src="{{ asset('storage/'. $announcements->first()->image) }}"
+                    alt="Announcement">
+                @endif
+            </div>
+        </div>
     </div>
 
     {{-- New Products --}}
@@ -66,32 +78,32 @@
     </div>
 
     <!-- <div class="body-element" id="list-product"> -->
-        <div class="list-product-container">
-            <div  id="list-product-pay-free" class="list-product-payware">
-                @foreach ($products as $product)
-                <div class="product-card" id="product"
-                    data-name="{{ $product->name }}"
-                    data-desc="{{ $product->description }}"
-                    data-price="Rp. {{ $product->price }}"
-                    data-img="{{ asset('storage/' . optional($product->images->first())->path) }}">
-                    @php
-                    $imagePath = optional($product->images->first())->path;
-                    $imageSrc = $imagePath ? asset('storage/' . $imagePath) : asset('storage/image-products/unknownThumbnail.png');
-                    @endphp
-                    <div class="thumbnail-product">
-                        <img src="{{ $imageSrc }}" class="thumbnail-img" alt="">
-                    </div>
-                    <p class="nama-produk">{{$product->name}}</p>
-                    <p class="deskripsi-singkat-produk">
-                        {{$product->description}}
-                    </p>
-                    <div class="container-harga">
-                        <span>Rp. {{$product->price}}</span>
-                    </div>
+    <div class="list-product-container">
+        <div id="list-product-pay-free" class="list-product-payware">
+            @foreach ($products as $product)
+            <div class="product-card" id="product"
+                data-name="{{ $product->name }}"
+                data-desc="{{ $product->description }}"
+                data-price="Rp. {{ $product->price }}"
+                data-img="{{ asset('storage/' . optional($product->images->first())->path) }}">
+                @php
+                $imagePath = optional($product->images->first())->path;
+                $imageSrc = $imagePath ? asset('storage/' . $imagePath) : asset('storage/image-products/unknownThumbnail.png');
+                @endphp
+                <div class="thumbnail-product">
+                    <img src="{{ $imageSrc }}" class="thumbnail-img" alt="">
                 </div>
-                @endforeach
+                <p class="nama-produk">{{$product->name}}</p>
+                <p class="deskripsi-singkat-produk">
+                    {{$product->description}}
+                </p>
+                <div class="container-harga">
+                    <span>Rp. {{$product->price}}</span>
+                </div>
             </div>
+            @endforeach
         </div>
+    </div>
     <!-- </div> -->
 </div>
 @endsection

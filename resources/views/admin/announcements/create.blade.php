@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard Admin Create Payware')
+@section('title', 'Dashboard Admin Create Announcement  ')
 
 @section('content')
     <style>
@@ -15,66 +15,6 @@
             min-height: 100vh;
             overflow: visible;
             scroll-behavior: smooth;
-        }
-
-        .admin-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 28px;
-            width: 100%;
-        }
-
-        .back-btn {
-            display: inline-block;
-            padding: 6px 31px;
-            border-radius: 999px;
-            color: #000000;
-            background-color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 30px;
-            font-family: "Nexa";
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            justify-content: flex-end;
-            min-width: 260px;
-        }
-
-        .profile-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-radius: 24px;
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.16);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            color: #ffffff;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
-        }
-
-        .profile-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            display: grid;
-            place-items: center;
-            color: #25343f;
-            font-weight: 700;
-            font-size: 18px;
-            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
-        }
-
-        .profile-info .name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffffff;
         }
 
         .container {
@@ -114,7 +54,6 @@
         }
 
         .form-group input,
-        .form-group textarea,
         .form-group select {
             width: 100%;
             padding: 12px 16px;
@@ -126,7 +65,6 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
             border-color: #FF9B51;
@@ -177,7 +115,69 @@
             background-color: #c82333;
         }
 
-        @media (max-width: 980px) {
+
+        #add-category-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.1s ease-in-out;
+        }
+
+        #add-category-btn:hover {
+            scale: 1.05;
+            cursor: pointer;
+        }
+
+        #add-category-btn:active {
+            scale: 0.95;
+            cursor: pointer;
+        }
+
+        .popup-category {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .popup-category.hidden {
+            filter: blur(10px);
+            pointer-events: none;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        #popup-container {
+            transform-origin: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.16);
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            margin: auto 100px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .popup-overlay {
+            z-index: -1;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            opacity: 1;
+            transition: opacity 0.25s ease, backdrop-filter 0.25s ease;
+        }
+
+        @media screen and (max-width: 980px) {
             .main-page-admin {
                 padding: 30px 30px 50px;
             }
@@ -196,7 +196,6 @@
             }
 
             .form-group input,
-            .form-group textarea,
             .form-group select {
                 font-size: 15px;
                 padding: 11px 14px;
@@ -208,7 +207,7 @@
             }
         }
 
-        @media (max-width: 680px) {
+        @media screen and (max-width: 680px) {
             .main-page-admin {
                 padding: 24px 18px 36px;
             }
@@ -256,39 +255,15 @@
     <div class="main-page-admin">
         <div class="container">
             <div class="top-card">
-                <h2>Create New Payware Product</h2>
+                <h2>Create New Announcement</h2>
             </div>
 
-            <form action="/admin/payware" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.announcements.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
-                    <label for="name">Product Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
 
                 <div class="form-group">
                     <label for="image">Product Image</label>
-                    <input type="file" id="image" name="image" accept="image/*">
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="price">Price (IDR)</label>
-                    <input type="number" id="price" name="price" step="0.01" min="0" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select id="category" name="category" required>
-                        <option value="">Select a Category</option>
-                        @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
+                    <input type="file" id="image" name="image" accept="image/" >
                 </div>
 
                 <div class="form-group">
@@ -298,12 +273,77 @@
                         <option value="0">No</option>
                     </select>
                 </div>
-
+                @if ($errors->any())
+                    <div>
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="button-group">
-                    <a href="{{ route('admin.payware.index') }}" class="btn btn-cancel">Cancel</a>
-                    <button type="submit" class="btn btn-save">Save Product</button>
+                    <a href="{{ route('admin.announcements.index') }}" class="btn btn-cancel">Cancel</a>
+                    <button type="submit" class="btn btn-save">Save Announcement</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const type = document.getElementById("type");
+            const price = document.getElementById("price");
+
+            const priceState = () => {
+                const isFreeware = type.value === 'freeware';
+                price.disabled = isFreeware;
+                if (isFreeware) {
+                    price.value = 0;
+                    price.removeAttribute('required');
+                } else {
+                    price.disabled = 0;
+                    price.value = '';
+                    price.setAttribute('required', 'required');
+                }
+
+            }
+            type.addEventListener('change', priceState);
+            priceState();
+        })
+
+        const popupAddCategory = document.getElementById("popup-category");
+        const addCategoryBtn = document.getElementById("add-category-btn");
+        const cancelPopupBtn = document.getElementById("cancel-popup");
+        const categoryForm = document.querySelector('#popup-category form');
+        const categorySelect = document.getElementById('category');
+
+        addCategoryBtn.addEventListener("click", () => {
+            popupAddCategory.classList.remove("hidden");
+        })
+
+        cancelPopupBtn.addEventListener("click", () => {
+            popupAddCategory.classList.add("hidden");
+        });
+
+        categoryForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(categoryForm);
+
+            const res = await fetch(categoryForm.action, {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            });
+
+            const data = await res.json();
+
+            const option = new Option(data.name, data.id, true, true);
+            categorySelect.add(option);
+
+            categoryForm.reset();
+            popupAddCategory.classList.add("hidden");
+        });
+    </script>
 @endsection
