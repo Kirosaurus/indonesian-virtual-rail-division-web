@@ -105,7 +105,7 @@
     <div class="container">
         <div class="top-card">
             <h2 class="page-title">Product Payware</h2>
-            <a href="/admin/payware/create" class="btn-add">
+            <a href="{{ route('admin.products.create')}}" class="btn-add">
                 <button class="create-product">
                     <img src="{{ asset('plus_icon.svg') }}" alt="Icon Plus" style="width: 32px; height: 32px;">
                     Add Product
@@ -139,7 +139,7 @@
                     <td>{{$product->name}}</td>
                     <td>{{$product->id}}</td>
                     <td>{{$product->price}}</td>
-                    <td>{{$product->category}}</td>
+                    <td>{{$product->category->name ?? '-' }}</td>
                     <td>{{$product->description}}</td>
                     <td>{{$product->active ? "Aktif" : "Tidak Aktif"}}</td>
                     <td>

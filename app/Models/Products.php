@@ -8,4 +8,14 @@ class Products extends Model
 {
     protected $table = 'products';
     protected $guarded = [];
+
+    public function images()
+    {
+        return $this->hasMany(Images::class, 'product_id');
+    }
+
+    public function category()
+{
+    return $this->belongsTo(Categories::class, 'category_id');
+}
 }

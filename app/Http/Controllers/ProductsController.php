@@ -18,9 +18,11 @@ class ProductsController extends Controller
         } else {
             $products = Products::all();
         }
+        $categories = Categories::pluck('name', 'id');
 
         return view($viewName, [
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
 
@@ -56,5 +58,9 @@ class ProductsController extends Controller
         ]);
 
         return redirect()->route('admin.payware.index')->with('success', 'Product created successfully!');
+    }
+
+    public function anu(){
+        return redirect()->route('admin.payware.index');
     }
 }
