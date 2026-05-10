@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard Admin Edit Announcement')
+@section('title', 'Dashboard Admin Edit User')
 
 @section('content')
     <style>
@@ -221,28 +221,33 @@
     <div class="main-page-admin">
         <div class="container">
             <div class="top-card">
-                <h2>Edit Announcement</h2>
+                <h2>Edit User</h2>
             </div>
 
 
 
-            <form action="{{ route('admin.announcements.update', $announcement->id) }}" method="POST"
+            <form action="{{ route('admin.users.update', $user->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-                
+
                 <div class="form-group">
                     <label for="image">Product Image</label>
-                    <input type="file" id="images" name="image[]" accept="image/*" multiple>
+                    @if($user->image)
+                        <div style="margin-bottom: 10px;">
+                            <img src="{{ asset('storage/' . $user->image) }}" alt="Current Image" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                    @endif
+                    <input type="file" id="image" name="image" accept="image/*">
                 </div>
 
                 <div class="form-group">
                     <label for="active">Active</label>
                     <select id="active" name="active">
-                        <option value="1" {{$announcement->active === 1 ? 'selected' : ''}}>Yes</option>
-                        <option value="0" {{$announcement->active === 0 ? 'selected' : ''}}>No</option>
-                    </select>
+                        <option value="1" {{$user->active === 1 ? 'selected' : ''}}>Yes</option>
+                        <option value="0" {{$user->active === 0 ? 'selected' : ''}}>No</option>
+                    </select>       
                 </div>
                 @if ($errors->any())
                     <div>
@@ -252,8 +257,8 @@
                     </div>
                 @endif
                 <div class="button-group">
-                    <a href="{{ route('admin.announcements.index') }}" class="btn btn-cancel">Cancel</a>
-                    <button type="submit" class="btn btn-save">Edit Announcement</button>
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-cancel">Cancel</a>
+                    <button type="submit" class="btn btn-save">Edit User</button>
                 </div>
             </form>
         </div>

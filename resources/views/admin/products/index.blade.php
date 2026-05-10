@@ -380,7 +380,7 @@
             } */
     </style>
     <div class="main-page-admin">
-        <div id="product-view-popup" class="product-view-popup">
+         <div id="product-view-popup" class="product-view-popup">
             <div class="product-view-card">
                 <div class="product-view-header">
                     <h2 class="product-view-title">Product Images</h2>
@@ -424,7 +424,6 @@
                         <th>Description</th>
                         <th>Status</th>
                         <th>Actions</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -472,54 +471,31 @@
     </div>
 
     <script>
-        // Delete confirmation modal
-        const deleteModal = document.getElementById('deleteConfirmationModal');
-        const btnDeleteCancel = document.getElementById('btnDeleteCancel');
-        const btnDeleteConfirm = document.getElementById('btnDeleteConfirm');
-        const productNameDisplay = document.getElementById('productNameDisplay');
-        let currentDeleteProductId = null;
+          document.addEventListener('DOMContentLoaded', function () {
+            const viewLinks = document.querySelectorAll('.product-view-link');
+            const viewPopup = document.getElementById('product-view-popup');
+            const closeViewBtn = document.getElementById('close-view-popup');
+            const viewOverlay = document.getElementById('view-popup-overlay');
+            const popupTitle = document.querySelector('.product-view-title');
 
-        // Open modal when delete button clicked
-        document.querySelectorAll('.hapus-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const productId = this.getAttribute('data-product-id');
-                const productName = this.getAttribute('data-product-name');
-                
-                currentDeleteProductId = productId;
-                productNameDisplay.textContent = productName;
-                deleteModal.classList.add('active');
+            function openViewPopup(name) {
+                popupTitle.textContent = name ? `${name} - Image Template` : 'Product Images';
+                viewPopup.classList.add('visible');
+            }
+
+            function closeViewPopup() {
+                viewPopup.classList.remove('visible');
+            }
+
+            viewLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openViewPopup(this.dataset.name);
+                });
             });
-        });
 
-        // Cancel delete
-        btnDeleteCancel.addEventListener('click', () => {
-            deleteModal.classList.remove('active');
-            currentDeleteProductId = null;
-        });
-
-        // Confirm delete
-        btnDeleteConfirm.addEventListener('click', () => {
-            if (currentDeleteProductId) {
-                // Submit delete form
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = `/admin/products/${currentDeleteProductId}`;
-                form.innerHTML = `
-                    @csrf
-                    @method('DELETE')
-                `;
-                document.body.appendChild(form);
-                form.submit();
-            }
-        });
-
-        // Close modal when clicking outside
-        deleteModal.addEventListener('click', (e) => {
-            if (e.target === deleteModal) {
-                deleteModal.classList.remove('active');
-                currentDeleteProductId = null;
-            }
+            closeViewBtn.addEventListener('click', closeViewPopup);
+            viewOverlay.addEventListener('click', closeViewPopup);
         });
     </script>
 @endsection

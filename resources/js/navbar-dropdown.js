@@ -24,4 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
             menuDropdown.classList.remove('active');
         }
     });
+
+    // Fungsi untuk toggle content pada profile card
+    window.toggleContent = function() {
+        const content = document.querySelector('.profile-card-content');
+        if (content) {  
+            content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+        }
+    };
 });
