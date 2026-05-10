@@ -10,6 +10,17 @@ const whatsappList = document.querySelectorAll(".whatsapp-contact > a");
 const waLink = ['https://wa.me/+6281366950138', 'https://wa.me/+6289601056281']
 const productListContainer = document.getElementById('list-product-pay-free');
 
+// Utility function untuk format harga dengan separator
+function formatPrice(price) {
+    if (!price || price === 'FREE' || price === 0) return 'FREE';
+    
+    // Convert to string dan hapus karakter non-angka
+    const numStr = String(price).replace(/\D/g, '');
+    
+    // Format dengan dot sebagai separator ribuan (Rp 40.000, Rp 400.000, dll)
+    return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
 productListContainer.addEventListener('click', function(e) {
     // Cari product card terdekat yang diklik
     const card = e.target.closest('.product-card');
@@ -31,7 +42,11 @@ productListContainer.addEventListener('click', function(e) {
 
     // Update modal info
     document.querySelector('#modal-name').textContent = name;
-    document.querySelector('#modal-price').textContent = 'Rp ' + price;
+    
+    const priceValue = String(price).replace(/\D/g, '');
+    const formattedPrice = priceValue ? 'Rp ' + formatPrice(priceValue) : 'FREE';
+    document.querySelector('#modal-price').textContent = formattedPrice;
+    
     document.querySelector('#modal-desc').textContent = desc;
     
     // Update thumbnail utama

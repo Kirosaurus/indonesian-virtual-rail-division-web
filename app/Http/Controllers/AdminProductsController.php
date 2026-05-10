@@ -21,7 +21,7 @@ class AdminProductsController extends Controller
         ]);
     }
 
-    public function  create()
+    public function create()
     {
         $categories = Categories::all();
 
@@ -86,7 +86,7 @@ class AdminProductsController extends Controller
         $categories = Categories::all();
 
         return view('admin.products.edit', [
-            'product' => $product,
+            'product' => $product->load('images'),
             'categories' => $categories
         ]);
     }
@@ -132,7 +132,7 @@ class AdminProductsController extends Controller
         // Handle delete image (jika ada request untuk hapus)
         if ($request->has('delete_images')) {
             $deleteImageIds = $request->input('delete_images', []);
-            
+
             if (!empty($deleteImageIds)) {
                 $imagesToDelete = Images::whereIn('id', $deleteImageIds)
                     ->where('product_id', $product->id)
@@ -173,7 +173,7 @@ class AdminProductsController extends Controller
     {
         // Hapus semua images yang berhubungan
         $images = Images::where('product_id', $product->id)->get();
-        
+
         foreach ($images as $image) {
             // Hapus file dari storage
             if (file_exists(storage_path('app/public/' . $image->path))) {
@@ -199,11 +199,16 @@ class AdminProductsController extends Controller
      */
     private function deleteUnusedTags()
     {
-        // Cari tags yang tidak memiliki relasi di product_tags
-        $unusedTags = Tags::doesntHave('products')->get();
+        try {
+            // Cari tags yang tidak memiliki relasi di product_tags
+            $unusedTags = Tags::doesntHave('products')->get();
 
-        foreach ($unusedTags as $tag) {
-            $tag->delete();
+            foreach ($unusedTags as $tag) {
+                $tag->delete();
+            }
+        } catch (\Exception $e) {
+            // Log error tapi jangan hentikan proses
+            \Log::error('Failed to delete unused tags: ' . $e->getMessage());
         }
     }
 }

@@ -7,6 +7,10 @@ use App\Models\Categories;
 
 class AdminCategoriesController extends Controller
 {
+    public function index()
+    {
+        return view('admin.categories.index');
+    }
     public function store(Request $request)
     {
         $request->validate([

@@ -7,7 +7,6 @@
     overflow-y: auto;
 }
 
-
 .app-wrapper-admin {
     display: flex;
     align-content: center;
@@ -17,7 +16,6 @@
     position: relative;
     z-index: 1;
 }
-
 
 .app-root-admin {
     gap: 21px;
@@ -47,7 +45,7 @@
     }
 }
 
-.admin-header-wrapper{
+.admin-header-wrapper {
     container-type: inline-size;
     container-name: adminHeader;
 }
@@ -174,7 +172,7 @@
     text-decoration: none;
 }
 
-.dropdown-item-active{
+.dropdown-item-active {
     width: 100%;
     padding: 12px 16px;
     border: none;
@@ -225,6 +223,8 @@
 
 .header-right {
     display: flex;
+    flex-direction: column;
+    width: fit-content;
     align-items: center;
     gap: 16px;
     justify-content: flex-end;
@@ -243,6 +243,37 @@
     color: #ffffff;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
 }
+
+.profile-card-content {
+    display: none;
+    background-color: rgb(128, 128, 128);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 10px 40px;
+    position: absolute;
+    flex-direction: column;
+
+    gap: 6px;
+    top: 0px;
+    margin-top: 130px;
+    z-index: 999;
+}
+
+.profile-card-content a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-family: "Nexa";
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* .profile-card-content.show {
+    display: flex;
+
+} */
 
 .profile-avatar {
     width: 52px;
@@ -288,7 +319,7 @@
     }
 }
 
-@container adminHeader (max-width : 768px){
+@container adminHeader (max-width : 768px) {
     .search-card {
         gap: 20px;
         width: 100%;
@@ -306,11 +337,11 @@
         font-size: 14px;
         flex-grow: 1;
     }
-    
+
     .navbar-icons-desktop {
         display: none;
     }
-    
+
     .navbar-menu-toggle {
         display: flex;
         margin-left: auto;

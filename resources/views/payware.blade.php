@@ -18,6 +18,13 @@
 <link rel="stylesheet" href="{{ asset('css/animation.css') }}" />
 @endsection
 
+@php
+function formatPrice($price) {
+    if (!$price || $price === 'FREE' || $price == 0) return 'FREE';
+    return number_format($price, 0, '', '.');
+}
+@endphp
+
 @section('content')
 <div class="main-page">
     {{-- Top bar --}}
@@ -127,7 +134,7 @@
             <div class="product-card" id="product"
                 data-name="{{ $product->name }}"
                 data-desc="{{ $product->description }}"
-                data-price="{{ 'Rp '. $product->price ? $product->price : 'FREE' }}"
+                data-price="{{ 'Rp '. formatPrice($product->price) ? formatPrice($product->price) : 'FREE' }}"
                 data-img="{{ json_encode($imagePaths) }}"
                 data-tags=" {{json_encode($tags)}} "
                 data-text="{{ $text }}">
@@ -140,7 +147,7 @@
                     {{$product->description}}
                 </p>
                 <div class="container-harga">
-                    <span>Rp. {{$product->price}}</span>
+                    <span>Rp {{ formatPrice($product->price) }}</span>
                 </div>
             </div>
             @endforeach

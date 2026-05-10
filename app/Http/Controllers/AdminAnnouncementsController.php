@@ -21,6 +21,15 @@ class AdminAnnouncementsController extends Controller
         return view('admin.announcements.create');
     }
 
+    public function edit($id)
+    {
+        $announcement = Announcements::findOrFail($id);
+
+        return view('admin.announcements.edit', [
+            'announcement' => $announcement
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -35,7 +44,32 @@ class AdminAnnouncementsController extends Controller
                 'image' => $file
             ]);
         }
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'active' => 'required|boolean'
+        ]);
 
-        return redirect()->route('admin.announcements.index')->with('success', 'Announcements created successfully!');
+        $announcement = Announcements::findOrFail($id);
+
+        $data = [
+            'active' => $request->active
+        ];
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($announcement->image && \Storage::disk('public')->exists($announcement->image)) {
+                \Storage::disk('public')->delete($announcement->image);
+            }
+            // Store new image
+            $file = $request->file('image')->store('Announcements', 'public');
+            $data['image'] = $file;
+        }
+
+        $announcement->update($data);
+
+        return redirect()->route('admin.announcements.index')->with('success', 'Announcement updated successfully!');
     }
 }
