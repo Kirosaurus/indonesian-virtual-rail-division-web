@@ -68,45 +68,51 @@
     <div id="product-modal" class="modal hidden" aria-hidden="true">
         <div class="modal-sizer">
             <div class="modal-card">
-                <button class="modal-close" type="button" data-close="true">×</button>
-                <div class="left-modal">
-                    <div id="modal-thumb-viewer">
-                        <img class="modal-thumb" alt="Product image" />
-                    </div>
-                    <div class="list-thumbnail" id="list-thumbnail">
-                        {{-- Generated dinamis via JavaScript --}}
-                    </div>
+                <div class="close-container">
+                    <button class="modal-close" type="button" data-close="true">
+                        <img
+                            src="{{ asset('close_icon.svg')}}">
+                    </button>
                 </div>
-                <div class="right-modal">
-                    <h3 id="modal-name"></h3>
-                    <div class="modal-price">
-                        <span id="modal-price"></span>
-                    </div>
-                    <p id="modal-desc"></p>
-                    <div class="tag-products" id="tag-products">
-
-                    </div>
-                    <div class="action-container">
-                        <span>Mau tanya-tanya atau mau beli produknya? Hubungi kontak di bawah ini.</span>
-                        <div class="whatsapp-contact">
-                            <a href="https://wa.me/+6281366950138"> {{-- NOMERNYA MASIH PAKE PUNYA GANDHII --}}
-                                <button class="whatsapp-order-button">
-                                    <img src="{{ asset('whatsapp-icon.svg') }}">
-                                    <p>WhatsApp 1</p>
-                                </button>
-                            </a>
-                            <a href="https://wa.me/+6289601056281">
-                                <button class="whatsapp-order-button">
-                                    <img src="{{ asset('whatsapp-icon.svg') }}">
-                                    <p>WhatsApp 2</p>
-                                </button>
-                            </a>
+                <div class="modal-contain">
+                    <div class="left-modal">
+                        <div id="modal-thumb-viewer">
+                            <img class="modal-thumb" alt="Product image" />
                         </div>
-                        <!-- <button class="modal-action" type="button">Buy Now</button> -->
+                        <div class="list-thumbnail" id="list-thumbnail">
+                            {{-- Generated dinamis via JavaScript --}}
+                        </div>
                     </div>
-                    <div class="S&K">
-                        <span>Dengan membeli produk ini, anda sudah membaca dan setuju dengan
-                            <a href="/terms&condition" target="_blank">syarat dan ketentuan</a> yang berlaku.</span>
+                    <div class="right-modal">
+                        <h3 id="modal-name"></h3>
+                        <div class="modal-price">
+                            <span id="modal-price"></span>
+                        </div>
+                        <p id="modal-desc"></p>
+                        <div class="tag-products" id="tag-products">
+
+                        </div>
+                        <div class="action-container">
+                            <span>Mau tanya-tanya atau mau beli produknya? Hubungi kontak di bawah ini.</span>
+                            <div class="whatsapp-contact">
+                                <a href="https://wa.me/+6281366950138"> {{-- NOMERNYA MASIH PAKE PUNYA GANDHII --}}
+                                    <button class="whatsapp-order-button">
+                                        <img src="{{ asset('whatsapp-icon.svg') }}">
+                                        <p>WhatsApp 1</p>
+                                    </button>
+                                </a>
+                                <a href="https://wa.me/+6289601056281">
+                                    <button class="whatsapp-order-button">
+                                        <img src="{{ asset('whatsapp-icon.svg') }}">
+                                        <p>WhatsApp 2</p>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="S&K">
+                            <span>Dengan membeli produk ini, anda sudah membaca dan setuju dengan
+                                <a href="/terms&condition" target="_blank">syarat dan ketentuan</a> yang berlaku.</span>
+                        </div>
                     </div>
                 </div>
             </div>

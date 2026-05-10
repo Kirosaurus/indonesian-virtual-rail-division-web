@@ -81,7 +81,7 @@
                         {{$product->description}}
                     </p>
                     <div class="container-harga">
-                        <span>Rp. {{$product->price}}</span>
+                        <span>{{$product->price ? 'Rp $product->price' : 'FREE'}}</span>
                     </div>
                 </div>
                 @endforeach

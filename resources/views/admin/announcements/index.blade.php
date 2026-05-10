@@ -222,7 +222,7 @@
                         <td> {{ $announcement->id }}</td>
                         <td> {{ $announcement->active ? "Aktif" : "Tidak Aktif  " }}</td>
                         <td>
-                            <a href="" class="edit"><img src="{{ asset('edit_icon.svg') }}" alt="Icon Edit"
+                            <a href="{{ route('admin.announcements.edit', $announcement->id)}}" class="edit"><img src="{{ asset('edit_icon.svg') }}" alt="Icon Edit"
                                     style="width: 30px; height: 30px; "></a>
                             <a href="" class="hapus"><img src="{{ asset('trash_icon.svg') }}" alt="Icon Trash"
                                     style="width: 30px; height: 30px; "></a>

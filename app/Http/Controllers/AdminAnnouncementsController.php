@@ -38,4 +38,12 @@ class AdminAnnouncementsController extends Controller
 
         return redirect()->route('admin.announcements.index')->with('success', 'Announcements created successfully!');
     }
+
+    public function edit(Announcements $announcement){
+        return view('admin.announcements.edit',[
+            'announcement' => $announcement
+        ]);
+    }
+
+    
 }

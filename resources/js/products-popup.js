@@ -68,11 +68,24 @@ productListContainer.addEventListener('click', function(e) {
     overlay.classList.remove("hidden");
 });
 
-// Modal close handler
+// Function untuk menutup modal
+const closeModal = () => {
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+    overlay.classList.add('hidden');
+};
+
+// Modal close handler - gunakan event delegation
 modal.addEventListener('click', (e) => {
+    const closeBtn = e.target.closest('[data-close="true"]');
+    if (closeBtn) {
+        closeModal();
+    }
+});
+
+// Handle overlay click juga
+document.addEventListener('click', (e) => {
     if (e.target.dataset.close === 'true') {
-        modal.classList.add('hidden');
-        modal.setAttribute('aria-hidden', 'true');
-        overlay.classList.add('hidden');
+        closeModal();
     }
 });
