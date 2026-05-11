@@ -21,9 +21,9 @@
             <div class="heading">
                 <div class="title">
                     <button id="sidebar-button">
-                        <img src="{{ asset('menu.svg') }}" height="25" width="25" alt="Menu" />
+                        <img src="{{ asset('icons/menu.svg') }}" height="25" width="25" alt="Menu" />
                     </button>
-                    <img src="{{asset('tncWhite_icon.svg')}}" width="40" height="40">
+                    <img src="{{asset('icons/tncWhite_icon.svg')}}" width="40" height="40">
                     <h1>Terms & Condition </h1>
                 </div>
                 <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-end;">

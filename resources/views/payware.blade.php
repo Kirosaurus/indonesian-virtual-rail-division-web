@@ -21,16 +21,17 @@
 @php
     function formatPrice($price)
     {
-        if (!$price || $price === 'FREE' || $price == 0)
+        if (!$price || $price === 'FREE' || $price == 0) {
             return 'FREE';
+        }
         return number_format($price, 0, '', '.');
     }
 @endphp
 
 @section('content')
-<style>
+    <style>
 
-</style>
+    </style>
 
     <div class="main-page">
         {{-- Top bar --}}
@@ -39,9 +40,9 @@
                 <div class="left-top-container">
                     <div class="title">
                         <button id="sidebar-button">
-                            <img src="{{ asset('menu.svg') }}" height="25" width="25" alt="Menu" />
+                            <img src="{{ asset('icons/menu.svg') }}" height="25" width="25" alt="Menu" />
                         </button>
-                        <img src="{{asset('paywareWhite_icon.svg')}}" width="50" height="50">
+                        <img src="{{ asset('icons/paywareWhite_icon.svg') }}" width="50" height="50">
                         <h1>Payware </h1>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
 
                             <div style="position: relative;">
                                 <button class="sort-button">
-                                    <img src="{{ asset('sort.svg') }}" height="30" width="30" alt="Filter" />
+                                    <img src="{{ asset('icons/sort.svg') }}" height="30" width="30" alt="Filter" />
                                 </button>
                             </div>
                             <div class="sortir">
@@ -61,7 +62,7 @@
 
                         </div>
                         <button class="ascend-descend-button">
-                            <img class="arrow-sort" src="{{ asset('asc-dsc.svg') }}" height="25" width="25"
+                            <img class="arrow-sort" src="{{ asset('icons/asc-dsc.svg') }}" height="25" width="25"
                                 alt="Ascending" />
                             <span>
                                 Ascending
@@ -72,7 +73,8 @@
                         {{-- Give the input an id --}}
                         <div class="search-bar">
                             <input type="text" id="search-box" class="search-input" placeholder="Cari Produk" />
-                            <img class="search-icon" src="{{ asset('search-icon.svg') }}" height="25" width="25" />
+                            <img class="search-icon" src="{{ asset('icons/search-icon.svg') }}" height="25"
+                                width="25" />
                         </div>
                     </div>
                 </div>
@@ -85,7 +87,7 @@
                 <div class="modal-card">
                     <div class="close-container">
                         <button class="modal-close" type="button" data-close="true">
-                            <img src="{{ asset('close_icon.svg')}}">
+                            <img src="{{ asset('icons/close_icon.svg') }}">
                         </button>
                     </div>
                     <div class="modal-contain">
@@ -111,13 +113,13 @@
                                 <div class="whatsapp-contact">
                                     <a href="https://wa.me/+6281366950138"> {{-- NOMERNYA MASIH PAKE PUNYA GANDHII --}}
                                         <button class="whatsapp-order-button">
-                                            <img src="{{ asset('whatsapp-icon.svg') }}">
+                                            <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                                             <p>WhatsApp 1</p>
                                         </button>
                                     </a>
                                     <a href="https://wa.me/+6289601056281">
                                         <button class="whatsapp-order-button">
-                                            <img src="{{ asset('whatsapp-icon.svg') }}">
+                                            <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                                             <p>WhatsApp 2</p>
                                         </button>
                                     </a>
@@ -141,19 +143,24 @@
 
                         $tags = $product->tags->pluck('name')->toArray();
 
-                        $imagePaths = $product->images->pluck('path')->map(fn($path) => asset('storage/' . $path))->toArray();
+                        $imagePaths = $product->images
+                            ->pluck('path')
+                            ->map(fn($path) => asset('storage/' . $path))
+                            ->toArray();
                         $imageSrc = count($imagePaths) > 0 ? $imagePaths[0] : asset('unknownThumbnail.png');
                     @endphp
                     <div class="product-card" id="product" data-name="{{ $product->name }}"
-                        data-desc="{{ $product->description }}" data-price="{{ $product->price ? $product->price : 'FREE' }}"
-                        data-img="{{ json_encode($imagePaths) }}" data-tags=" {{json_encode($tags)}} " data-text="{{ $text }}">
+                        data-desc="{{ $product->description }}"
+                        data-price="{{ $product->price ? $product->price : 'FREE' }}"
+                        data-img="{{ json_encode($imagePaths) }}" data-tags=" {{ json_encode($tags) }} "
+                        data-text="{{ $text }}">
 
                         <div class="thumbnail-product">
                             <img src="{{ $imageSrc }}" class="thumbnail-img" alt="">
                         </div>
-                        <p class="nama-produk">{{$product->name}}</p>
+                        <p class="nama-produk">{{ $product->name }}</p>
                         <p class="deskripsi-singkat-produk">
-                            {{$product->description}}
+                            {{ $product->description }}
                         </p>
                         <div class="container-harga">
                             <span>Rp {{ $product->price }}</span>

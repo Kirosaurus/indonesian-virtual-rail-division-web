@@ -298,7 +298,7 @@
             <h2 class="page-title">List Announcements</h2>
             <a href="{{ route('admin.announcements.create')}}" class="btn-add">
                 <button class="create-product">
-                    <img src="{{ asset('plus_icon.svg') }}" alt="Icon Plus" style="width: 32px; height: 32px;">
+                    <img src="{{ asset('icons/plus_icon.svg') }}" alt="Icon Plus" style="width: 32px; height: 32px;">
                     Add Announcement
                 </button>
             </a>
@@ -329,10 +329,10 @@
                         <td> {{ $announcement->id }}</td>
                         <td> {{ $announcement->active ? "Aktif" : "Tidak Aktif  " }}</td>
                         <td>
-                            <a href="{{ route('admin.announcements.edit', $announcement->id)}}" class="edit"><img src="{{ asset('edit_icon.svg') }}" alt="Icon Edit"
+                            <a href="{{ route('admin.announcements.edit', $announcement->id)}}" class="edit"><img src="{{ asset('icons/edit_icon.svg') }}" alt="Icon Edit"
                                     style="width: 30px; height: 30px; "></a>
                             <button class="hapus-btn" data-product-id="{{ $announcement->id }}" data-product-name="{{ $announcement->name }}" style="background: none; border: none; cursor: pointer; padding: 0;">
-                                <img src="{{ asset('trash_icon.svg') }}" alt="Icon Trash"
+                                <img src="{{ asset('icons/trash_icon.svg') }}" alt="Icon Trash"
                                     style="width: 30px; height: 30px; ">
                             </button>
                         </td>

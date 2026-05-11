@@ -21,10 +21,10 @@
             <div class="heading">
                 <div class="title">
                     <button id="sidebar-button">
-                        <img src="{{ asset('menu.svg') }}" height="25" width="25" alt="Menu" />
+                        <img src="{{ asset('icons/menu.svg') }}" height="25" width="25" alt="Menu" />
                     </button>
                     <h1 style="white-space: nowrap;">Contact Us</h1>
-                    <img src="{{asset('contactWhite_icon.svg')}}" width="30" height="30">
+                    <img src="{{asset('icons/contactWhite_icon.svg')}}" width="30" height="30">
 
                 </div>
                 <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-end;">
@@ -40,19 +40,19 @@
                 <div class="social-media-section">
                     <button class="social-media-contact">
                         <a href="https://wa.me/+6282131520905">
-                            <img src="{{ asset('whatsapp-icon.svg') }}">
+                            <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                             <p>WhatsApp 1</p>
                     </button>
                     </a>
                     <button class="social-media-contact">
                         <a href="https://wa.me/+6289601056281">
-                            <img src="{{ asset('whatsapp-icon.svg') }}">
+                            <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                             <p>WhatsApp 2</p>
                     </button>
                     </a>
                     <button class="social-media-contact">
                         <a href="https://www.facebook.com/share/17tHYNhMne/">
-                            <img src="{{ asset('facebook-icon.svg') }}">
+                            <img src="{{ asset('icons/facebook-icon.svg') }}">
                             <p>Facebook</p>
                         </a>
                     </button>
