@@ -1,11 +1,11 @@
 @php
-    $currentUrl = request()->path();
-    $links = [
-        ['href' => '/admin/products', 'label' => 'Payware', 'icon_active' => 'productDashboardOrange_icon.svg', 'icon' => 'productDashboardBlack_icon.svg'],
-        ['href' => '/admin/announcements', 'label' => 'Announcement', 'icon_active' => 'announceOrange_icon.svg', 'icon' => 'announceBlack_icon.svg'],
-        ['href' => '/admin/users', 'label' => 'User', 'icon_active' => 'userOrange_icon.svg', 'icon' => 'userBlack_icon.svg'],
-        ['href' => '/admin/categories', 'label' => 'Categories', 'icon_active' => 'categoryOrange_icon.svg', 'icon' => 'categoryBlack_icon.svg'],
-    ];
+$currentUrl = request()->path();
+$links = [
+['href' => '/admin/products', 'label' => 'Payware', 'icon_active' => 'productDashboardOrange_icon.svg', 'icon' => 'productDashboardBlack_icon.svg'],
+['href' => '/admin/announcements', 'label' => 'Announcement', 'icon_active' => 'announceOrange_icon.svg', 'icon' => 'announceBlack_icon.svg'],
+['href' => '/admin/users', 'label' => 'User', 'icon_active' => 'userOrange_icon.svg', 'icon' => 'userBlack_icon.svg'],
+['href' => '/admin/categories', 'label' => 'Categories', 'icon_active' => 'categoryOrange_icon.svg', 'icon' => 'categoryBlack_icon.svg'],
+];
 @endphp
 
 <div class="admin-header-wrapper">
@@ -19,13 +19,13 @@
                 <!-- Desktop: Tampilkan semua icons -->
                 <div class="navbar-icons-desktop">
                     @foreach ($links as $link)
-                        @php
-                            $isActive = $currentUrl === ltrim($link['href'], '/');
-                        @endphp
-                        <a href="{{ url($link['href']) }}" class="header-icon" title="{{ $link['label'] }}">
-                            <img src="{{ asset($isActive ? $link['icon_active'] : $link['icon']) }}"
-                                alt="{{ $link['label'] }} Icon" width="30" height="30" />
-                        </a>
+                    @php
+                    $isActive = $currentUrl === ltrim($link['href'], '/');
+                    @endphp
+                    <a href="{{ url($link['href']) }}" class="header-icon" title="{{ $link['label'] }}">
+                        <img src="{{ asset($isActive ? $link['icon_active'] : $link['icon']) }}"
+                            alt="{{ $link['label'] }} Icon" width="30" height="30" />
+                    </a>
                     @endforeach
                 </div>
 
@@ -41,14 +41,14 @@
                 <!-- Mobile: Dropdown Menu -->
                 <div class="navbar-menu-dropdown" id="navMenuDropdown">
                     @foreach ($links as $link)
-                        @php
-                            $isActive = $currentUrl === ltrim($link['href'], '/');
-                        @endphp
-                        <a href="{{ url($link['href']) }}" class="{{$isActive ? 'dropdown-item-active' : 'dropdown-item'}}">
-                            <img src="{{ asset($isActive ? $link['icon_active'] : $link['icon']) }}"
-                                alt="{{ $link['label'] }} Icon" width="20" height="20" style="margin-right: 8px;" />
-                            {{ $link['label'] }}
-                        </a>
+                    @php
+                    $isActive = $currentUrl === ltrim($link['href'], '/');
+                    @endphp
+                    <a href="{{ url($link['href']) }}" class="{{$isActive ? 'dropdown-item-active' : 'dropdown-item'}}">
+                        <img src="{{ asset($isActive ? $link['icon_active'] : $link['icon']) }}"
+                            alt="{{ $link['label'] }} Icon" width="20" height="20" style="margin-right: 8px;" />
+                        {{ $link['label'] }}
+                    </a>
                     @endforeach
                 </div>
             </div>
@@ -64,10 +64,13 @@
             </div>
 
             <div class="profile-card-content">
-                <a href="">
-                    <img src="{{ asset('logout_icon.svg') }}" alt="logout Icon" style="width: 20px; height: 20px; margin-right: 8px;">
-                    Logout
-                </a>
+                <form action="/logout" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <img src="{{ asset('logout_icon.svg') }}" alt="logout Icon" style="width: 20px; height: 20px;">
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
     </div>

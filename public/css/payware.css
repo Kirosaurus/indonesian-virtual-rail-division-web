@@ -214,12 +214,15 @@
 }
 
 .modal-sizer {
-    container-type: inline-size;
+     container-type: inline-size;
     container-name: modalSize;
     display: flex;
+    justify-content: center;  /* ← horizontal center */
+    align-items: center;      /* ← vertical center */
     position: fixed;
     inset: 0;
     z-index: 999;
+    /* padding: 20px;            ← ganti margin jadi padding di sini */
     transition: all 0.5s ease-in-out;
 }
 
@@ -240,7 +243,7 @@
     padding: 45px;
     border-radius: 50px;
     width: auto;
-    max-width: 100%;
+    max-width: calc(100% - 240px);
     height: 100%;
     max-height: 800px;
     margin: auto 240px;
@@ -305,6 +308,7 @@
 
 .left-modal {
     width: 100%;
+     min-width: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -313,14 +317,13 @@
 
 .list-thumbnail {
     width: 100%;
-    /* max-width: 841px; */
     display: flex;
     gap: 15px;
     overflow-x: auto;
 }
 .list-thumbnail::-webkit-scrollbar {
-    display: none;
-    scroll-behavior: smooth;
+    display: none; 
+     scroll-behavior: smooth; 
 }
 
 #modal-thumb-viewer {
@@ -568,6 +571,7 @@
 
 @media (max-width: 1200px) {
     .modal-card {
+        max-width: 100%;
         margin: auto 10px;
     }
 

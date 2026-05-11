@@ -5,7 +5,7 @@
 @push('scripts')
     @vite('resources/js/topbar-functional.js')
     @vite('resources/js/sidebar-functional.js')
-    @vite('resources/js/animation/terms-condition.js')
+    @vite('resources/js/animation/dashboard.js')
 @endpush
 
 @section('css')
@@ -31,7 +31,7 @@
         </div>
 
         {{-- Terms & Condition Content --}}
-        <div class="terms-condition-wrapper">
+        <div class="body-element" id="terms-condition-wrapper">
             <div class="terms-condition-content">
                 <p><b>By purchasing game mod content from Indonesia <span>Virtual Railway Division</span> (IVRD), the buyer
                         is considered to have <span>read, understood, and agreed</span> to the following terms:</p>

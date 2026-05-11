@@ -19,7 +19,7 @@
     white-space: nowrap;
 }
 
-.terms-condition-wrapper {
+#terms-condition-wrapper {
     width: 100%;
     height: auto;
     min-height: 0;
