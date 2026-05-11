@@ -135,7 +135,7 @@ function formatPrice($price) {
             $tags = $product->tags->pluck('name')->toArray();
 
             $imagePaths = $product->images->pluck('path')->map(fn($path) => asset('storage/' . $path))->toArray();
-            $imageSrc = count($imagePaths) > 0 ? $imagePaths[0] : asset('storage/image-products/unknownThumbnail.png');
+            $imageSrc = count($imagePaths) > 0 ? $imagePaths[0] : asset('unknownThumbnail.png');
             @endphp
             <div class="product-card" id="product"
                 data-name="{{ $product->name }}"

@@ -71,7 +71,7 @@
                     data-img="{{ asset('storage/' . optional($product->images->first())->path) }}">
                     @php
                     $imagePath = optional($product->images->first())->path;
-                    $imageSrc = $imagePath ? asset('storage/' . $imagePath) : asset('storage/image-products/unknownThumbnail.png');
+                    $imageSrc = $imagePath ? asset('storage/' . $imagePath) : asset('unknownThumbnail.png');
                     @endphp
                     <div class="thumbnail-product">
                         <img src="{{ $imageSrc }}" class="thumbnail-img" alt="">

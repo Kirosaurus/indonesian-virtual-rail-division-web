@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminProductsController;
 use App\Http\Controllers\AdminAnnouncementsController;
 use App\Http\Controllers\AdminUsersController;
 
+use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\ProductsPaywareController;
 use App\Http\Controllers\ProductsFreewareController;
 use App\Http\Controllers\AnnouncementsController;
@@ -62,23 +63,9 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::resource('categories', AdminCategoriesController::class);
     Route::resource('announcements', AdminAnnouncementsController::class);
     Route::resource('users', AdminUsersController::class);
+    Route::delete('images/{image}', [ImagesController::class, 'destroy'])->name('images.destroy');
 });
 
 Route::get('/admin', function () {
     return redirect('/admin/products');
 })->middleware('auth')->name('admin.payware.index');
-
-// Route::get('/admin/payware', [ProductsController::class, 'index'])->middleware('auth')->name('admin.payware.index');
-
-// Route::get('/admin/payware/create', [CategoriesController::class, 'getCategories']);
-
-// Route::post('/admin/{type}', [ProductsController::class, 'store'])
-//     ->whereIn('type', ['payware', 'freeware']);
-
-// Route::get('/admin/freeware', function () {
-//     return view('dashboard_admin_freeware');
-// })->middleware('auth');
-
-// Route::get('/admin/announcement', function () {
-//     return view('dashboard_admin_announcement');
-// })->middleware('auth');
