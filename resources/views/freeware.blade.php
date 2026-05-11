@@ -6,6 +6,7 @@
 @vite('resources/js/products-popup.js')
 @vite('resources/js/topbar-functional.js')
 @vite('resources/js/toolbar-functional.js')
+@vite('resources/js/freeware-filter.js')
 @vite('resources/js/sidebar-functional.js')
 @vite('resources/js/animation/pay-free.js')
 @endpush
@@ -26,10 +27,10 @@
             <div class="left-top-container">
                 <div class="title">
                     <button id="sidebar-button">
-                        <img src="{{ asset('menu.svg') }}" height="25" width="25" alt="Menu" />
+                        <img src="{{ asset('icons/menu.svg') }}" height="25" width="25" alt="Menu" />
                     </button>
                     <img
-                        src="{{asset('freewareWhite_icon.svg')}}"
+                        src="{{asset('icons/freewareWhite_icon.svg')}}"
                         width="50"
                         height="50">
                     <h1>Freeware </h1>
@@ -39,7 +40,7 @@
                 <div class="list-sortir">
                     <div style="position: relative;">
                         <button class="sort-button">
-                            <img src="{{ asset('sort.svg') }}" height="30" width="30" alt="Filter" />
+                            <img src="{{ asset('icons/sort.svg') }}" height="30" width="30" alt="Filter" />
                         </button>
                         <div class="sortir">
                             <button class="sort">Price</button>
@@ -47,7 +48,7 @@
                         </div>
                     </div>
                     <button class="ascend-descend-button">
-                        <img class="arrow-sort" src="{{ asset('asc-dsc.svg') }}" height="25" width="25" alt="Ascending" />
+                        <img class="arrow-sort" src="{{ asset('icons/asc-dsc.svg') }}" height="25" width="25" alt="Ascending" />
                         <span>
                             Ascending
                         </span>
@@ -57,7 +58,7 @@
                     {{-- Give the input an id --}}
                     <div class="search-bar">
                         <input type="text" id="search-box" class="search-input" placeholder="Cari Produk" />
-                        <img class="search-icon" src="{{ asset('search-icon.svg') }}" height="25" width="25" />
+                        <img class="search-icon" src="{{ asset('icons/search-icon.svg') }}" height="25" width="25" />
                     </div>
                 </div>
             </div>
@@ -70,7 +71,7 @@
                 <div class="close-container">
                     <button class="modal-close" type="button" data-close="true">
                         <img
-                            src="{{ asset('close_icon.svg')}}">
+                            src="{{ asset('icons/close_icon.svg')}}">
                     </button>
                 </div>
                 <div class="modal-contain">
@@ -96,13 +97,13 @@
                             <div class="whatsapp-contact">
                                 <a href="https://wa.me/+6281366950138"> {{-- NOMERNYA MASIH PAKE PUNYA GANDHII --}}
                                     <button class="whatsapp-order-button">
-                                        <img src="{{ asset('whatsapp-icon.svg') }}">
+                                        <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                                         <p>WhatsApp 1</p>
                                     </button>
                                 </a>
                                 <a href="https://wa.me/+6289601056281">
                                     <button class="whatsapp-order-button">
-                                        <img src="{{ asset('whatsapp-icon.svg') }}">
+                                        <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                                         <p>WhatsApp 2</p>
                                     </button>
                                 </a>

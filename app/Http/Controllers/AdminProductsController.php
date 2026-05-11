@@ -41,7 +41,7 @@ class AdminProductsController extends Controller
             'description' => 'required|string',
             'price' => 'required_if:type,payware|numeric|min:0',
             'category' => 'required|exists:categories,id',
-            'tags' => 'string|max:1000',
+            'tags' => 'nullable|string|max:1000',
             'active' => 'boolean'
         ]);
 

@@ -332,7 +332,7 @@
                         @endforeach
                     </select>
                     <div id="add-category-btn">
-                        <img src="{{ asset('plusBlack_icon.svg') }}" alt="Icon Plus" style="width: 20px; height: 20px;">
+                        <img src="{{ asset('icons/plusBlack_icon.svg') }}" alt="Icon Plus" style="width: 20px; height: 20px;">
                     </div>
                 </div>
             </div>

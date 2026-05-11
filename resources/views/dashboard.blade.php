@@ -26,10 +26,10 @@
         <div class="heading">
             <div class="title">
                 <button class="top-bar-element" id="sidebar-button">
-                    <img src="{{ asset('menu.svg') }}" height="25" width="25" alt="Menu" />
+                    <img src="{{ asset('icons/menu.svg') }}" height="25" width="25" alt="Menu" />
                 </button>
                 <img
-                    src="{{ asset('dashboardWhite_icon.svg') }}">
+                    src="{{ asset('icons/dashboardWhite_icon.svg') }}">
                 <h1 class="top-bar-element">Dashboard</h1>
             </div>
             <div class="top-bar-element" style="width: 100%; display: flex; flex-direction: column; align-items: flex-end;">
@@ -43,7 +43,7 @@
                 <div class="close-container">
                     <button class="modal-close" type="button" data-close="true">
                         <img
-                            src="{{ asset('close_icon.svg')}}"
+                            src="{{ asset('icons/close_icon.svg')}}"
                         >
                     </button>
                 </div>
@@ -70,13 +70,13 @@
                             <div class="whatsapp-contact">
                                 <a href="https://wa.me/+6281366950138"> {{-- NOMERNYA MASIH PAKE PUNYA GANDHII --}}
                                     <button class="whatsapp-order-button">
-                                        <img src="{{ asset('whatsapp-icon.svg') }}">
+                                        <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                                         <p>WhatsApp 1</p>
                                     </button>
                                 </a>
                                 <a href="https://wa.me/+6289601056281">
                                     <button class="whatsapp-order-button">
-                                        <img src="{{ asset('whatsapp-icon.svg') }}">
+                                        <img src="{{ asset('icons/whatsapp-icon.svg') }}">
                                         <p>WhatsApp 2</p>
                                     </button>
                                 </a>
@@ -133,7 +133,7 @@
             <div class="product-card" id="product"
                 data-name="{{ $product->name }}"
                 data-desc="{{ $product->description }}"
-                data-price="{{ 'Rp '. $product->price ? $product->price : 'FREE' }}"
+                data-price="{{ $product->price }}"
                 data-img="{{ json_encode($imagePaths) }}"
                 data-tags=" {{json_encode($tags)}} "
                 data-text="{{ $text }}">
@@ -153,4 +153,22 @@
     </div>
     <!-- </div> -->
 </div>
+
+ <script>
+        const containerHarga = document.querySelectorAll('.container-harga > span')
+        document.querySelectorAll('.product-card').forEach((item, i) => {
+            let price = item.dataset.price
+            if(price){
+                price = parseInt(price)
+                price = price.toLocaleString('id-ID', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+                containerHarga[i].textContent = 'Rp ' + price;
+            }
+            else{
+                containerHarga[i].textContent = 'FREE';
+            }
+        })
+    </script>
 @endsection

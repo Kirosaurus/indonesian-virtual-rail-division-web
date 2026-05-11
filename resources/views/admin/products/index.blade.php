@@ -406,7 +406,7 @@
                 <h2 class="page-title">Product</h2>
                 <a href="{{ route('admin.products.create')}}" class="btn-add">
                     <button class="create-product">
-                        <img src="{{ asset('plus_icon.svg') }}" alt="Icon Plus" style="width: 32px; height: 32px;">
+                        <img src="{{ asset('icons/plus_icon.svg') }}" alt="Icon Plus" style="width: 32px; height: 32px;">
                         Add Product
                     </button>
                 </a>
@@ -440,10 +440,10 @@
                             <td>{{$product->active ? "Aktif" : "Tidak Aktif"}}</td>
                             <td>
                                 <a href="{{ route('admin.products.edit', $product->id) }}" class="edit"><img
-                                        src="{{ asset('edit_icon.svg') }}" alt="Icon Edit"
+                                        src="{{ asset('icons/edit_icon.svg') }}" alt="Icon Edit"
                                         style="width: 30px; height: 30px; "></a>
                                 <button class="hapus-btn" data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}" style="background: none; border: none; cursor: pointer; padding: 0;">
-                                    <img src="{{ asset('trash_icon.svg') }}" alt="Icon Trash"
+                                    <img src="{{ asset('icons/trash_icon.svg') }}" alt="Icon Trash"
                                         style="width: 30px; height: 30px; ">
                                 </button>
                             </td>

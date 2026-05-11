@@ -3,12 +3,12 @@
 @php
 $currentUrl = request()->path();
 $links = [
-['href' => '', 'label' => 'Dashboard', 'icon_active' => 'dashboard_icon.svg', 'icon' => 'dashboardWhite_icon.svg'],
-['href' => 'payware', 'label' => 'Payware', 'icon_active' => 'paywareBlack_icon.svg', 'icon' => 'paywareWhite_icon.svg'],
-['href' => 'freeware', 'label' => 'Freeware', 'icon_active' => 'freewareBlack_icon.svg','icon' => 'freewareWhite_icon.svg'],
-['href' => 'terms&condition','label' => 'Terms & Condition','icon_active' => 'tncBlack_icon.svg', 'icon' => 'tncWhite_icon.svg'],
-['href' => 'contact', 'label' => 'Contact', 'icon_active' => 'contactBlack_icon.svg', 'icon' => 'contactWhite_icon.svg'],
-['href' => 'how2order', 'label' => 'How to Order', 'icon_active' => 'h2oBlack_icon.svg', 'icon' => 'h2oWhite_icon.svg'],
+['href' => '', 'label' => 'Dashboard', 'icon_active' => 'icons/dashboard_icon.svg', 'icon' => 'icons/dashboardWhite_icon.svg'],
+['href' => 'payware', 'label' => 'Payware', 'icon_active' => 'icons/paywareBlack_icon.svg', 'icon' => 'icons/paywareWhite_icon.svg'],
+['href' => 'freeware', 'label' => 'Freeware', 'icon_active' => 'icons/freewareBlack_icon.svg','icon' => 'icons/freewareWhite_icon.svg'],
+['href' => 'terms&condition','label' => 'Terms & Condition','icon_active' => 'icons/tncBlack_icon.svg', 'icon' => 'icons/tncWhite_icon.svg'],
+['href' => 'contact', 'label' => 'Contact', 'icon_active' => 'icons/contactBlack_icon.svg', 'icon' => 'icons/contactWhite_icon.svg'],
+['href' => 'how2order', 'label' => 'How to Order', 'icon_active' => 'icons/h2oBlack_icon.svg', 'icon' => 'icons/h2oWhite_icon.svg'],
 ];
 @endphp
 
@@ -48,7 +48,7 @@ $links = [
         <div class="facebook-name">
             <a href="https://www.facebook.com/share/17tHYNhMne/" target="_blank" rel="noopener">
                 <img class="facebook-logo"
-                    src="{{ asset('facebook_icon.svg') }}"
+                    src="{{ asset('icons/facebook_icon.svg') }}"
                     alt="Facebook"
                     width="30" height="30" />
             </a>

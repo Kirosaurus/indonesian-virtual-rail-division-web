@@ -1,17 +1,17 @@
 @php
 $currentUrl = request()->path();
 $links = [
-['href' => '/admin/products', 'label' => 'Payware', 'icon_active' => 'productDashboardOrange_icon.svg', 'icon' => 'productDashboardBlack_icon.svg'],
-['href' => '/admin/announcements', 'label' => 'Announcement', 'icon_active' => 'announceOrange_icon.svg', 'icon' => 'announceBlack_icon.svg'],
-['href' => '/admin/users', 'label' => 'User', 'icon_active' => 'userOrange_icon.svg', 'icon' => 'userBlack_icon.svg'],
-['href' => '/admin/categories', 'label' => 'Categories', 'icon_active' => 'categoryOrange_icon.svg', 'icon' => 'categoryBlack_icon.svg'],
+['href' => '/admin/products', 'label' => 'Payware', 'icon_active' => 'icons/productDashboardOrange_icon.svg', 'icon' => 'icons/productDashboardBlack_icon.svg'],
+['href' => '/admin/announcements', 'label' => 'Announcement', 'icon_active' => 'icons/announceOrange_icon.svg', 'icon' => 'icons/announceBlack_icon.svg'],
+['href' => '/admin/users', 'label' => 'User', 'icon_active' => 'icons/userOrange_icon.svg', 'icon' => 'icons/userBlack_icon.svg'],
+['href' => '/admin/categories', 'label' => 'Categories', 'icon_active' => 'icons/categoryOrange_icon.svg', 'icon' => 'icons/categoryBlack_icon.svg'],
 ];
 @endphp
 
 <div class="admin-header-wrapper">
     <div class="admin-header">
         <a href="/" class="back-btn">
-            <img class="back-img" src="{{asset('back_icon.svg')}}">
+            <img class="back-img" src="{{asset('icons/back_icon.svg')}}">
             <span class="back-text">Back to Site</span>
         </a>
         <div class="header-center">
@@ -55,7 +55,7 @@ $links = [
         </div>
         <div class="header-right">
             <div class="profile-card" onclick="toggleContent()">
-                <div class="profile-avatar"><img src="{{ asset('person_icon.svg') }}" alt="Announcement"
+                <div class="profile-avatar"><img src="{{ asset('icons/person_icon.svg') }}" alt="Announcement"
                         style="width: 24px; height: 25px;"></div>
                 <div class="profile-info">
                     <div class="name">{{ auth()->user()->name ?? 'Admin' }}</div>
@@ -67,7 +67,7 @@ $links = [
                 <form action="/logout" method="POST" style="display: inline;">
                     @csrf
                     <button type="submit" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-                        <img src="{{ asset('logout_icon.svg') }}" alt="logout Icon" style="width: 20px; height: 20px;">
+                        <img src="{{ asset('icons/logout_icon.svg') }}" alt="logout Icon" style="width: 20px; height: 20px;">
                         Logout
                     </button>
                 </form>

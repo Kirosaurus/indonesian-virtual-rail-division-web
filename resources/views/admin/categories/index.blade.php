@@ -206,10 +206,10 @@
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
                         <td>
-                            <a href="{{route('admin.categories.edit', $category->id)}}" class="edit"><img src="{{ asset('edit_icon.svg') }}" alt="Icon Edit"
+                            <a href="{{route('admin.categories.edit', $category->id)}}" class="edit"><img src="{{ asset('icons/edit_icon.svg') }}" alt="Icon Edit"
                                     style="width: 30px; height: 30px; "></a>
                             <button class="hapus-btn" data-category-id="{{ $category->id }}" data-category-name="{{ $category->name }}" style="background: none; border: none; cursor: pointer; padding: 0;">
-                                <img src="{{ asset('trash_icon.svg') }}" alt="Icon Trash" style="width: 30px; height: 30px;">
+                                <img src="{{ asset('icons/trash_icon.svg') }}" alt="Icon Trash" style="width: 30px; height: 30px;">
                             </button>
                         </td>
                     </tr>
