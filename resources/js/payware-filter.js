@@ -14,16 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchProducts({ search: searchTerm, sort_by: currentSort, order: currentOrder });
     });
 
-    // Sort menu toggle
-    sortButton.addEventListener('click', () => {
-        sortMenu.style.display = sortMenu.style.display === 'none' ? 'block' : 'none';
-    });
-
     // Sort option selection
     sortOptions.forEach(option => {
         option.addEventListener('click', () => {
             currentSort = option.textContent.toLowerCase();
-            sortMenu.style.display = 'none';
             fetchProducts({ sort_by: currentSort, order: currentOrder, search: searchBox.value });
         });
     });

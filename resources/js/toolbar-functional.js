@@ -107,6 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
 //         }
 //     }
 // )
+    window.toggleSort = function () {
+        const sortir = document.querySelector('.sortir');
+        const button = document.querySelector('.sort-button');
+
+        sortir.classList.toggle('show');
+        button.classList.toggle('active');
+    };
 })
 
 window.addEventListener("resize", () => {

@@ -14,6 +14,9 @@
     transition: 0.5s ease-in-out;
 }
 
+.sort-wrapper {
+    position: relative;
+}
 /* .list-sortir.hide {
     scale: 0.9;
     filter: blur(10px);
@@ -64,20 +67,21 @@
 }
 
 .sortir {
+    inset: 0;
     width: 110px;
     position: absolute;
-    top: 44px;
+    top: 50px;
     left: 0;
-    /* display: none; */
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 10px;
     opacity: 0;
     background-color: transparent;
-    padding: 15px;
+    padding: 10px;
     border-radius: 15px;
-    z-index: -1;
+    z-index: -100;
     transition: 0.1s ease-in-out;
 }
 
@@ -108,18 +112,6 @@
     transition: 0.1s ease-in-out;
 }
 
-.container-harga {
-    height: 100%;
-    width: 100%;
-    font-family: "Nexa";
-    color: white;
-    font-size: 20px;
-    font-weight: 800;
-    display: flex;
-    justify-items: flex-end;
-    align-items: flex-end;
-}
-
 .sort:hover {
     scale: 1.05;
 }
@@ -139,6 +131,18 @@
 
 .sortir button.active:active {
     scale: 0.95;
+}
+
+.container-harga {
+    height: 100%;
+    width: 100%;
+    font-family: "Nexa";
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    justify-items: flex-end;
+    align-items: flex-end;
 }
 
 .list-product-payware {
@@ -235,9 +239,10 @@
     font-family: "Nexa", sans-serif;
     padding: 45px;
     border-radius: 50px;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: 100%;
-    max-height: 775px;
+    max-height: 800px;
     margin: auto 240px;
     background: linear-gradient(225deg, #78838b, #c07944);
     color: white;
@@ -301,12 +306,14 @@
 .left-modal {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 23px;
 }
 
 .list-thumbnail {
-    width: 841px;
+    width: 100%;
+    /* max-width: 841px; */
     display: flex;
     gap: 15px;
     overflow-x: auto;
@@ -371,7 +378,7 @@
 
 .tag-products {
     width: 100%;
-    min-width: 400px;
+    /* min-width: 400px; */
     padding: auto;
     display: flex;
     flex-wrap: wrap;
@@ -405,7 +412,7 @@
 }
 
 .action-container {
-    height: 150px;
+    height: 100%;
     width: 100%;
     justify-content: flex-end;
     display: flex;
@@ -415,7 +422,8 @@
 }
 
 #modal-desc {
-    height: 800px;
+    height: 100%;
+    min-height: 200px;
     overflow-y: auto;
     text-align: justify;
     mask-image: linear-gradient(
@@ -552,6 +560,10 @@
     .modal-contain {
         flex-direction: column;
     }
+
+    .left-modal {
+        max-width: auto;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -563,9 +575,9 @@
         flex-direction: column;
     }
 
-    .whatsapp-contact {
+    /* .whatsapp-contact {
         flex-direction: column;
-    }
+    } */
 }
 
 @media (max-width: 600px) {
